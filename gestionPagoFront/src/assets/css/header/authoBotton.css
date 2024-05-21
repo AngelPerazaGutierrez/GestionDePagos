@@ -1,0 +1,14 @@
+.authoButton {
+  color: #333; /* Color del texto */
+  font-size: 16px; /* Tamaño de fuente */
+  padding: 10px 20px; /* Relleno interior */
+  border-radius: 8px; /* Bordes redondeados */
+  width: 270px; /* Ancho del botón */
+  text-align: center; /* Centrado del texto */
+  cursor: pointer; /* Cambia el cursor al pasar por encima */
+  transition: background-color 0.3s ease; /* Transición suave */
+  display: flex; /* Flexbox para alinear contenido */
+  align-items: center; /* Centrar verticalmente */
+  justify-content: center;
+  gap: 20px;
+}
