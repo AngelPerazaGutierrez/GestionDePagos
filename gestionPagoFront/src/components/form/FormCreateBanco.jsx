@@ -7,12 +7,6 @@ const fieldsConfigBanco = [
     validation: { required: "NIT es obligatorio" },
   },
   {
-    name: "id",
-    label: "ID",
-    type: "number",
-    validation: { required: "ID es obligatorio" },
-  },
-  {
     name: "tipo_cuenta",
     label: "Tipo de Cuenta",
     type: "select",
@@ -31,7 +25,7 @@ const fieldsConfigBanco = [
 ];
 export const FormCreateBanco = () => {
   const defaultValues = {
-    items: [{ nit: "", id: "", tipo_cuenta: "", nombre_banco: "" }],
+    items: [{ nit: "", tipo_cuenta: "", nombre_banco: "" }],
   };
   return (
     <DynamicForm

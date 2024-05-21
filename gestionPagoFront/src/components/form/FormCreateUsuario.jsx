@@ -1,12 +1,6 @@
 import { DynamicForm } from "../common/DynamicForm";
 const fieldsConfigUsuario = [
   {
-    name: "id",
-    label: "ID",
-    type: "number",
-    validation: { required: "ID es obligatorio" },
-  },
-  {
     name: "cedula",
     label: "Cédula",
     type: "number",
@@ -53,7 +47,6 @@ export const FormCreateUsuario = () => {
   const defaultValues = {
     items: [
       {
-        id: "",
         cedula: "",
         nombre: "",
         apellido: "",

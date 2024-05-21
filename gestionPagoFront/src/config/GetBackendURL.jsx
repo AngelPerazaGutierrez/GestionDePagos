@@ -2,4 +2,4 @@
 //   return "https://jsonplaceholder.typicode.com/posts?_limit=10";
 // };
 export const GetBackendURL =
-  "https://jsonplaceholder.typicode.com/posts?_limit=10";
+  "http://127.0.0.1:8000/";
