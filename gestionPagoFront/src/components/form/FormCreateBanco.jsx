@@ -15,7 +15,11 @@ const fieldsConfigBanco = [
   {
     name: "tipo_cuenta",
     label: "Tipo de Cuenta",
-    type: "text", // Podría ser un select si tienes un enum específico
+    type: "select",
+    options: [
+      { value: "Ahorros", label: "Ahorros" },
+      { value: "Corriente", label: "Corriente" },
+    ],
     validation: { required: "Tipo de cuenta es obligatorio" },
   },
   {

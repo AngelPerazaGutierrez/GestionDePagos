@@ -208,7 +208,7 @@ export const DynamicForm = ({
             <Button
               type="button"
               variant="secondary"
-              onClick={() => append({ firstName: "bill", lastName: "luo" })}
+              onClick={() => append({ name: "items" })}
             >
               Agregar Campo
             </Button>
