@@ -30,7 +30,7 @@ const fieldsConfigEgreso = [
   {
     name: "tercero",
     label: "Tercero",
-    type: "number",
+    type: "text",
     validation: { required: "Tercero es obligatorio" },
   },
   {

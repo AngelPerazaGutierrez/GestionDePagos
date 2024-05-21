@@ -29,3 +29,15 @@ export const revisarCp = async (cpId, decision, setCpsPendientes) => {
     console.error("Error al revisar el CP:", error);
   }
 };
+
+//post del egreso
+export const crearComprobante = async (setCpsPendientes) => {
+  try {
+    const response = await axios.post(`${GetBackendURL}cp/registrar-cp`, setCpsPendientes);
+    console.log(
+      `Enviando el formulario`, response
+    );    
+  } catch (error) {
+    console.error("Error al revisar el CP:", error);
+  }
+};

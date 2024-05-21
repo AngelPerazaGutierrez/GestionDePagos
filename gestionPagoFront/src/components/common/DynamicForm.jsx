@@ -1,98 +1,4 @@
-// import React, { useState } from "react";
-// import {
-//   useForm,
-//   useFieldArray,
-//   FormProvider,
-//   Controller,
-// } from "react-hook-form";
-// import {
-//   Button,
-//   Container,
-//   Form,
-//   FormGroup,
-//   FormLabel,
-//   FormControl,
-// } from "react-bootstrap";
-
-// export const DynamicForm = ({ fieldsConfig, formTitle, defaultValues }) => {
-//   const methods = useForm({ defaultValues });
-//   const {
-//     control,
-//     handleSubmit,
-//     formState: { errors },
-//   } = methods;
-//   const { fields, append, remove } = useFieldArray({ control, name: "items" });
-
-//   const onSubmit = (data) => {
-//     console.log(data);
-//   };
-
-//   const [showForm, setShowForm] = useState(false);
-
-//   const handleShowForm = () => {
-//     setShowForm(true);
-//   };
-
-//   return (
-//     <Container className="form-container">
-//       <h1 className="form-title">{formTitle}</h1>
-//       <FormProvider {...methods}>
-//         {showForm && (
-//           <Form onSubmit={handleSubmit(onSubmit)}>
-//             {fields.map((field, index) => (
-//               <div key={field.id}>
-//                 {fieldsConfig.map(({ name, label, type, validation }) => (
-//                   <FormGroup key={name}>
-//                     <FormLabel>{label}</FormLabel>
-//                     <Controller
-//                       name={`items.${index}.${name}`}
-//                       control={control}
-//                       rules={validation}
-//                       render={({ field }) => (
-//                         <FormControl
-//                           type={type}
-//                           {...field}
-//                           isInvalid={!!errors.items?.[index]?.[name]}
-//                           className="form-input"
-//                         />
-//                       )}
-//                     />
-//                     <FormControl.Feedback type="invalid">
-//                       {errors.items?.[index]?.[name]?.message}
-//                     </FormControl.Feedback>
-//                   </FormGroup>
-//                 ))}
-//                 <Button
-//                   type="button"
-//                   variant="danger"
-//                   onClick={() => remove(index)}
-//                 >
-//                   Eliminar
-//                 </Button>
-//                 <hr />
-//               </div>
-//             ))}
-//             <Button
-//               type="button"
-//               variant="secondary"
-//               onClick={() => append({})}
-//             >
-//               Agregar Campo
-//             </Button>
-//             <Button type="submit" variant="primary" className="submit-button">
-//               Guardar
-//             </Button>
-//           </Form>
-//         )}
-//         {!showForm && (
-//           <Button type="button" variant="secondary" onClick={handleShowForm}>
-//             nose
-//           </Button>
-//         )}
-//       </FormProvider>
-//     </Container>
-//   );
-// };
+import * as egreso from "../../services/areaPagos/getchCpsPendie"
 import React, { useState } from "react";
 
 import {
@@ -123,9 +29,9 @@ export const DynamicForm = ({
     formState: { errors },
   } = methods;
   const { fields, append, remove } = useFieldArray({ control, name: "items" });
-
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     console.log(data);
+    const datos = await egreso.crearComprobante(data.items[0])
   };
   const [showForm, setShowForm] = useState(false);
 
