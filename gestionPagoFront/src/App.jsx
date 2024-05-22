@@ -11,6 +11,7 @@ import { AdminPage } from "./pages/AdminPage";
 import { UserPages } from "./pages/UserPages ";
 import { TreasuryAreaPages } from "./pages/TreasuryAreaPages";
 import { PaymentPages } from "./pages/PaymentPages";
+import { UsuarioPages } from "./pages/UsuarioPages";
 
 function App() {
   return (
@@ -21,10 +22,11 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePages />} />
             <Route path="/admin" element={<AdminPage />} />
-            <Route path="/user" element={<UserPages />} />
+            <Route path="/user" element={<UsuarioPages />} />
             <Route path="/pay" element={<PaymentPages />} />
             <Route path="/treasury" element={<TreasuryAreaPages />} />
             <Route path="/login" element={<LoginPage />} />
+            {/* <Route path="/user" element={<UserPages />} /> */}
             {/* <Route
               path="/login"
               element={

@@ -1,4 +1,6 @@
 import { DynamicForm } from "../common/DynamicForm";
+import * as ciudad from "../../services/Ciudad";
+console.log(ciudad, "ciudad");
 const fieldsConfig = [
   {
     name: "pais",
@@ -16,14 +18,20 @@ const fieldsConfig = [
 
 export const FormCreateCiudad = () => {
   const defaultValues = { items: [{ pais: "Colombia", ciudad: "" }] };
+
+  const handleSubmit = async (data) => {
+    console.log(data, "dentro del submit ciudad");
+    const datos = await ciudad.crearCiudad(data.items[0]);
+  };
   return (
-    <div>
+    <>
       <DynamicForm
         fieldsConfig={fieldsConfig}
         formTitle="Crear ciudades"
         buttonLabel=" Formulario de ciudades"
         defaultValues={defaultValues}
+        onSubmit={handleSubmit}
       />
-    </div>
+    </>
   );
 };

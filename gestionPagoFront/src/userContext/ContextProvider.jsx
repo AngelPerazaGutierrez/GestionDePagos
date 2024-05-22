@@ -5,6 +5,7 @@ const UserContext = createContext();
 export const ContextProvider = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [selectedOption, setSelectedOption] = useState("");
+  const [DataForm, setDataForm] = useState();
   // funciones de navegacion protejidad
   const login = () => {
     setIsAuthenticated(true);
@@ -18,7 +19,8 @@ export const ContextProvider = ({ children }) => {
     setSelectedOption,
     isAuthenticated,
     login,
-    logout,
+    setDataForm,
+    DataForm,
   };
 
   return (

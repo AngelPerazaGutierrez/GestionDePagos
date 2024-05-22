@@ -13,11 +13,9 @@ export const Dashboard = () => {
     console.log(selectedPage);
   };
   const pages = [
-    { id: 1, name: "Perfil " },
-    { id: 2, name: "Crear comprobante de pago (CP)" },
-    { id: 3, name: "Visualizar CP creados" },
-    { id: 4, name: "Editar CP creados" },
-    { id: 5, name: "Eliminar CP creados" },
+    { id: 1, name: "Perfil" },
+    { id: 2, name: "Crear comprobante de pago" },
+    { id: 3, name: "Visualizar comprobantes de pago" },
   ];
   return (
     <div className="dashboard shadow">
@@ -33,7 +31,7 @@ export const Dashboard = () => {
             <CustomButton
               key={page.id}
               text={page.name}
-              customClass="my-custom-class"
+              custom=""
               setSelected={setSelectedPage}
               onClick={() => handledPagesSelect(page)}
             />

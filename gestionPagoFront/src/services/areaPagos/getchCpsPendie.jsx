@@ -2,7 +2,7 @@ import axios from "axios";
 
 import { GetBackendURL } from "../../config/GetBackendURL";
 
-console.log(GetBackendURL);
+console.log(GetBackendURL, "hola");
 export const fetchCpsPendie = async (setCpsPendientes) => {
   try {
     const backendURL = GetBackendURL;
@@ -17,26 +17,27 @@ export const fetchCpsPendie = async (setCpsPendientes) => {
 //
 
 //
-export const revisarCp = async (cpId, decision, setCpsPendientes) => {
-  try {
-    const response = await axios.put(`/api/cps/${cpId}`, { decision });
-    console.log(
-      `Simulando revisión del CP con ID: ${cpId} y decisión: ${decision}`
-    );
+// export const revisarCp = async (cpId, decision, setCpsPendientes) => {
+//   try {
+//     const response = await axios.put(`/api/cps/${cpId}`, { decision });
+//     console.log(
+//       `Simulando revisión del CP con ID: ${cpId} y decisión: ${decision}`
+//     );
 
-    await fetchCpsPendie(setCpsPendientes);
-  } catch (error) {
-    console.error("Error al revisar el CP:", error);
-  }
-};
+//     await fetchCpsPendie(setCpsPendientes);
+//   } catch (error) {
+//     console.error("Error al revisar el CP:", error);
+//   }
+// };
 
 //post del egreso
 export const crearComprobante = async (setCpsPendientes) => {
   try {
-    const response = await axios.post(`${GetBackendURL}cp/registrar-cp`, setCpsPendientes);
-    console.log(
-      `Enviando el formulario`, response
-    );    
+    const response = await axios.post(
+      `${GetBackendURL}cp/registrar-cp`,
+      setCpsPendientes
+    );
+    console.log(`Enviando el formulario`, response);
   } catch (error) {
     console.error("Error al revisar el CP:", error);
   }

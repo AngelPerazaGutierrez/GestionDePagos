@@ -1,4 +1,5 @@
 import { DynamicForm } from "../common/DynamicForm";
+import * as user from "../../services/RegistroUsuario";
 const fieldsConfigUsuario = [
   {
     name: "cedula",
@@ -57,6 +58,10 @@ export const FormCreateUsuario = () => {
       },
     ],
   };
+  const handleSubmit = async (data) => {
+    console.log(data, "dentro del usuario");
+    const datos = await user.registroUsuario(data.items[0]);
+  };
   return (
     <DynamicForm
       fieldsConfig={fieldsConfigUsuario}
@@ -64,6 +69,7 @@ export const FormCreateUsuario = () => {
       button="Crear Usuario"
       buttonLabel="Formulario de usuario"
       defaultValues={defaultValues}
+      onSubmit={handleSubmit}
     />
   );
 };

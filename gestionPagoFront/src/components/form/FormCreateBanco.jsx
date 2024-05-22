@@ -1,4 +1,5 @@
 import { DynamicForm } from "../common/DynamicForm";
+import * as banco from "../../services/Bonco";
 const fieldsConfigBanco = [
   {
     name: "nit",
@@ -27,12 +28,17 @@ export const FormCreateBanco = () => {
   const defaultValues = {
     items: [{ nit: "", tipo_cuenta: "", nombre_banco: "" }],
   };
+  const handleSubmit = async (data) => {
+    console.log(data, "dentro del submit banco");
+    const datos = await banco.crearBanco(data.items[0]);
+  };
   return (
     <DynamicForm
       fieldsConfig={fieldsConfigBanco}
       formTitle="Crear Bancos"
       buttonLabel=" Formulario de los Banco"
       defaultValues={defaultValues}
+      onSubmit={handleSubmit}
     />
   );
 };
