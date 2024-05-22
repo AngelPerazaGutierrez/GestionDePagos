@@ -8,9 +8,7 @@ import { LoginPage } from "./pages/LoginPage";
 import { ContextProvider } from "./userContext/ContextProvider";
 // import { ProtectedRoute } from "./components/header/ProtectedRoute";
 import { AdminPage } from "./pages/AdminPage";
-import { UserPages } from "./pages/UserPages ";
-import { TreasuryAreaPages } from "./pages/TreasuryAreaPages";
-import { PaymentPages } from "./pages/PaymentPages";
+
 import { UsuarioPages } from "./pages/UsuarioPages";
 
 function App() {
@@ -23,10 +21,9 @@ function App() {
             <Route path="/" element={<HomePages />} />
             <Route path="/admin" element={<AdminPage />} />
             <Route path="/user" element={<UsuarioPages />} />
-            <Route path="/pay" element={<PaymentPages />} />
-            <Route path="/treasury" element={<TreasuryAreaPages />} />
+
             <Route path="/login" element={<LoginPage />} />
-            {/* <Route path="/user" element={<UserPages />} /> */}
+
             {/* <Route
               path="/login"
               element={
