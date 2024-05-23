@@ -1,0 +1,12 @@
+.footer-container {
+    display: flex; /* or display: inline-flex */
+    flex-direction: row;
+    justify-content: space-between; /* Distribute columns evenly */
+    align-items: flex-start; /* Align column contents at the top */
+    background-color: #f3f3f3;
+  }
+  
+.footer-column {
+    flex: 1; /* Make columns equal width */
+    padding: 20px;
+}
