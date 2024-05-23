@@ -2,7 +2,7 @@ import axios from "axios";
 import { GetBackendURL } from "../config/GetBackendURL";
 
 export const crearEmpresa = async (datosFormEmpresa) => {
-  console.log(datosFormEmpresa);
+  console.log(datosFormEmpresa, "empresa");
   try {
     const response = await axios.post(
       `${GetBackendURL}empresa/registrar-empresa`,

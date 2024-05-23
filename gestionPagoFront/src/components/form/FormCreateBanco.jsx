@@ -18,7 +18,7 @@ const fieldsConfigBanco = [
     validation: { required: "Tipo de cuenta es obligatorio" },
   },
   {
-    name: "hombre_banco",
+    name_banco: "hombre_banco",
     label: "Nombre del Banco",
     type: "text",
     validation: { required: "Nombre del banco es obligatorio" },
