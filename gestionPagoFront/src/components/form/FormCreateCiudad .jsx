@@ -9,7 +9,7 @@ const fieldsConfig = [
     validation: { required: "País es obligatorio" },
   },
   {
-    name: "ciudad",
+    name: "ciudadnombre",
     label: "Ciudad",
     type: "text",
     validation: { required: "Ciudad es obligatoria" },
@@ -17,7 +17,7 @@ const fieldsConfig = [
 ];
 
 export const FormCreateCiudad = () => {
-  const defaultValues = { items: [{ pais: "Colombia", ciudad: "" }] };
+  const defaultValues = { items: [{ pais: "Colombia", ciudadnombre: "" }] };
 
   const handleSubmit = async (data) => {
     console.log(data, "dentro del submit ciudad");

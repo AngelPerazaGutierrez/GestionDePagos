@@ -20,9 +20,8 @@ const fieldsConfig = [
     label: "Tipo de cuenta",
     type: "select",
     options: [
-      { value: "tipo1", label: "Tipo 1" },
-      { value: "tipo2", label: "Tipo 2" },
-      { value: "tipo3", label: "Tipo 3" },
+      { value: "Ahorros", label: "Ahorros" },
+      { value: "Corriente", label: "Corriente" }
     ],
     validation: { required: "El tipo de cuenta es obligatorio" },
   },
