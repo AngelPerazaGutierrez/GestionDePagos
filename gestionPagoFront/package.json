@@ -21,7 +21,9 @@
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.51.4",
     "react-icons": "^5.2.1",
-    "react-router-dom": "^6.23.1"
+    "react-router-dom": "^6.23.1",
+    "run": "^1.5.0",
+    "serve": "^14.2.3"
   },
   "devDependencies": {
     "@types/react": "^18.2.66",
