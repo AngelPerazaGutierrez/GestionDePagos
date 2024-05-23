@@ -12,3 +12,14 @@ export const registroUsuario = async (datoFormUser) => {
     console.error("Error al revisar el :", error);
   }
 };
+
+export const consultarUsuario = async () => {
+  console.log(GetBackendURL, "comprobante");
+  try {
+    const response = await axios.get(`${GetBackendURL}usuario/listar-usuario`); // Cambia esta URL por tu endpoint real
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching data: ", error);
+    return [];
+  }
+};

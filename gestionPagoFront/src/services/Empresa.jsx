@@ -13,3 +13,14 @@ export const crearEmpresa = async (datosFormEmpresa) => {
     console.error("Error al revisar el CP:", error);
   }
 };
+
+export const consultarEmpresa = async () => {
+  console.log(GetBackendURL, "comprobante");
+  try {
+    const response = await axios.get(`${GetBackendURL}empresa/listar-empresa`); // Cambia esta URL por tu endpoint real
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching data: ", error);
+    return [];
+  }
+};
