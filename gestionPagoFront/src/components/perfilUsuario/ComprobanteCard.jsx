@@ -45,6 +45,7 @@ export const ComprobanteCard = () => {
   //     valor: 100,
   //   },
   // ];
+  ///ssss
 
     useEffect(() => {
       const getData = async () => {
