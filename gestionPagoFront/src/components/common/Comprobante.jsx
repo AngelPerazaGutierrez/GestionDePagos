@@ -1,8 +1,10 @@
-import React from "react";
+import { useState } from "react";
 import "../../assets/css/common/comprobante.css";
 import { CustomButton } from "./CustomButton";
+
+import { FormCreateIngreso } from "../form/FormCreateIngreso";
 import { BsPencilFill, BsTrashFill } from "react-icons/bs";
-export const Comprobante = ({ informacionCard }) => {
+export const Comprobante = ({ informacionCard, onSave }) => {
   const {
     id,
     adjuntos,
@@ -16,6 +18,10 @@ export const Comprobante = ({ informacionCard }) => {
     numero_cuenta,
     valor,
   } = informacionCard;
+
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+  const [cpData, setCpData] = useState(informacionCard);
+
   const handleEdit = () => {
     console.log("editar");
   };
@@ -27,8 +33,8 @@ export const Comprobante = ({ informacionCard }) => {
       <div className="px-4 p-2  d-flex justify-content-arouter stylBoton">
         <h5>Transacción #{id}</h5>
         <div className="d-flex gap-4 my-4 containerButon">
-          <BsTrashFill className="fs-5 text-secondary" />
-          <BsPencilFill className="fs-5 text-secondary" />
+          <BsTrashFill className="fs-5 text-secondary" onClick={handleDelete} />
+          <BsPencilFill className="fs-5 text-secondary" onClick={handleEdit} />
         </div>
       </div>
       <div className="d-flex gap-5 m-4 pb-4 ">
@@ -64,6 +70,11 @@ export const Comprobante = ({ informacionCard }) => {
             <strong>Adjuntos:</strong> {adjuntos}
           </p>
         )}
+
+        <FormCreateIngreso
+          initialValues={{ items: [cpData] }}
+          // onSave={handleSave}
+        />
       </div>
     </div>
   );
