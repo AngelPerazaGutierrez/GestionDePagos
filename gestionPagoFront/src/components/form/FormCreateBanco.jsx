@@ -10,7 +10,7 @@ const fieldsConfigBanco = [
   {
     name: "tipo_cuenta",
     label: "Tipo de Cuenta",
-    type: "select",
+    type: "select",  
     options: [
       { value: "Ahorros", label: "Ahorros" },
       { value: "Corriente", label: "Corriente" },
@@ -26,7 +26,7 @@ const fieldsConfigBanco = [
 ];
 export const FormCreateBanco = () => {
   const defaultValues = {
-    items: [{ nit: "", tipo_cuenta: "", nombre_banco: "" }],
+    items: [{ nit: "", tipo_cuenta: "Ahorro", nombre_banco: "" }],
   };
   const handleSubmit = async (data) => {
     console.log(data, "dentro del submit banco");

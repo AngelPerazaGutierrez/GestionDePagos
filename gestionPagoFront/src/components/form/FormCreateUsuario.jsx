@@ -39,8 +39,14 @@ const fieldsConfigUsuario = [
   },
   {
     name: "proceso",
-    label: "Proceso",
-    type: "text", // Podría ser un select si tienes un enum específico
+    label: "Proceso",    
+    type: "select",
+    options: [
+      { value: "Financiera", label: "Financiera" },
+      { value: "Gerencia", label: "Gerencia" },
+      { value: "Nomina", label: "Nomina" },
+      { value: "Tesoreria", label: "Tesoreria" },
+    ],    
     validation: { required: "Proceso es obligatorio" },
   },
 ];
