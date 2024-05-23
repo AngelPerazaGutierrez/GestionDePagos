@@ -1,20 +1,18 @@
 import axios from "axios";
 import { GetBackendURL } from "../config/GetBackendURL";
 
-export const consultarComprobante = async (datosFormIngreso) => {
-  console.log(datosFormIngreso);
-  try {
-    const response = await axios.post(
-      `${GetBackendURL}cp/cp-principal`,
-      datosFormIngreso
-    );
-    console.log(`mostrando comprobantes de pago`, response);
-  } catch (error) {
-    console.error("Error al consultar los comprobantes de pago:", error);
-  }
-};
-
-
+// export const consultarComprobante = async (datosFormIngreso) => {
+//   console.log(datosFormIngreso);
+//   try {
+//     const response = await axios.post(
+//       `${GetBackendURL}cp/cp-principal`,
+//       datosFormIngreso
+//     );
+//     console.log(`mostrando comprobantes de pago`, response);
+//   } catch (error) {
+//     console.error("Error al consultar los comprobantes de pago:", error);
+//   }
+// };
 
 export const crearComprobante = async (datosFormIngreso) => {
   console.log(datosFormIngreso);
@@ -26,5 +24,16 @@ export const crearComprobante = async (datosFormIngreso) => {
     console.log(`Enviando el formulario`, response);
   } catch (error) {
     console.error("Error al revisar el CP:", error);
+  }
+};
+
+export const odtenerComprobantes = async () => {
+  console.log(GetBackendURL, "comprobante");
+  try {
+    const response = await axios.get(`${GetBackendURL}cp/cp-principal`); // Cambia esta URL por tu endpoint real
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching data: ", error);
+    return [];
   }
 };

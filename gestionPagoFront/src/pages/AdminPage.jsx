@@ -4,6 +4,8 @@ import { FormCreateBanco } from "../components/form/FormCreateBanco";
 import { FormCreateUsuario } from "../components/form/FormCreateUsuario";
 import { FormCreateCiudad } from "../components/form/FormCreateCiudad ";
 import { FormCreateEmpresa } from "../components/form/FormCreateEmpresa";
+import { ComprobanteCard } from "../components/perfilUsuario/ComprobanteCard";
+import { Comprobante } from "../components/common/Comprobante";
 
 export const AdminPage = () => {
   return (
@@ -16,6 +18,8 @@ export const AdminPage = () => {
         <FormCreateUsuario />
         <FormCreateCiudad />
         <FormCreateEmpresa />
+        {/* <Comprobante /> */}
+        <ComprobanteCard />
       </div>
     </div>
   );
