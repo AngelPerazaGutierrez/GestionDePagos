@@ -13,7 +13,7 @@ export const LoginPage = () => {
   const { isAuthenticated, logout } = useThemeContext();
 
   return (
-    <div className="container-flued  containerPage">
+    <div className="container-flued  containerPage pt-5">
       {/* <Container> */}
       <Row>
         <Col sm={4}>

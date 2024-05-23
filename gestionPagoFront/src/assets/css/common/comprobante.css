@@ -1,0 +1,22 @@
+.containerComprobante {
+  background-color: #f0f0f0;
+  /* Sombra ligera */
+  transition: background-color 0.3s ease;
+}
+
+.containerComprobante:hover {
+  background-color: #d1d1d1;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  transition: background-color 0.3s ease;
+}
+.containerButon:hover {
+  cursor: pointer;
+}
+
+.stylBoton {
+  display: flex;
+
+  justify-content: space-between;
+  width: 100%;
+}

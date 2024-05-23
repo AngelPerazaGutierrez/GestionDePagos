@@ -1,4 +1,5 @@
 import { DynamicForm } from "../common/DynamicForm";
+import * as banco from "../../services/Bonco";
 const fieldsConfigBanco = [
   {
     name: "nit",
@@ -7,15 +8,9 @@ const fieldsConfigBanco = [
     validation: { required: "NIT es obligatorio" },
   },
   {
-    name: "id",
-    label: "ID",
-    type: "number",
-    validation: { required: "ID es obligatorio" },
-  },
-  {
     name: "tipo_cuenta",
     label: "Tipo de Cuenta",
-    type: "select",
+    type: "select",  
     options: [
       { value: "Ahorros", label: "Ahorros" },
       { value: "Corriente", label: "Corriente" },
@@ -23,7 +18,7 @@ const fieldsConfigBanco = [
     validation: { required: "Tipo de cuenta es obligatorio" },
   },
   {
-    name: "hombre_banco",
+    name_banco: "hombre_banco",
     label: "Nombre del Banco",
     type: "text",
     validation: { required: "Nombre del banco es obligatorio" },
@@ -31,7 +26,11 @@ const fieldsConfigBanco = [
 ];
 export const FormCreateBanco = () => {
   const defaultValues = {
-    items: [{ nit: "", id: "", tipo_cuenta: "", nombre_banco: "" }],
+    items: [{ nit: "", tipo_cuenta: "Ahorro", nombre_banco: "" }],
+  };
+  const handleSubmit = async (data) => {
+    console.log(data, "dentro del submit banco");
+    const datos = await banco.crearBanco(data.items[0]);
   };
   return (
     <DynamicForm
@@ -39,6 +38,7 @@ export const FormCreateBanco = () => {
       formTitle="Crear Bancos"
       buttonLabel=" Formulario de los Banco"
       defaultValues={defaultValues}
+      onSubmit={handleSubmit}
     />
   );
 };

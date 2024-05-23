@@ -17,7 +17,7 @@ export const Header = () => {
       expand="lg"
       className="d-flex justify-content-end  position-fixed top-0 header-content"
     >
-      <div class="d-flex mx-5">
+      <div className="d-flex mx-5">
         <BsHeadset className="fs-1 fw-bold" />
         <h3 className="fw-bold">Soporte</h3>
       </div>

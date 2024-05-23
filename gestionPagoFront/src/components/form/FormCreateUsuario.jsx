@@ -1,11 +1,6 @@
 import { DynamicForm } from "../common/DynamicForm";
+import * as user from "../../services/RegistroUsuario";
 const fieldsConfigUsuario = [
-  {
-    name: "id",
-    label: "ID",
-    type: "number",
-    validation: { required: "ID es obligatorio" },
-  },
   {
     name: "cedula",
     label: "Cédula",
@@ -44,8 +39,14 @@ const fieldsConfigUsuario = [
   },
   {
     name: "proceso",
-    label: "Proceso",
-    type: "text", // Podría ser un select si tienes un enum específico
+    label: "Proceso",    
+    type: "select",
+    options: [
+      { value: "Financiera", label: "Financiera" },
+      { value: "Gerencia", label: "Gerencia" },
+      { value: "Nomina", label: "Nomina" },
+      { value: "Tesoreria", label: "Tesoreria" },
+    ],    
     validation: { required: "Proceso es obligatorio" },
   },
 ];
@@ -53,7 +54,6 @@ export const FormCreateUsuario = () => {
   const defaultValues = {
     items: [
       {
-        id: "",
         cedula: "",
         nombre: "",
         apellido: "",
@@ -64,6 +64,10 @@ export const FormCreateUsuario = () => {
       },
     ],
   };
+  const handleSubmit = async (data) => {
+    console.log(data, "dentro del usuario");
+    const datos = await user.registroUsuario(data.items[0]);
+  };
   return (
     <DynamicForm
       fieldsConfig={fieldsConfigUsuario}
@@ -71,6 +75,7 @@ export const FormCreateUsuario = () => {
       button="Crear Usuario"
       buttonLabel="Formulario de usuario"
       defaultValues={defaultValues}
+      onSubmit={handleSubmit}
     />
   );
 };
