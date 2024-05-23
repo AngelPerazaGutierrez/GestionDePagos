@@ -1,6 +1,8 @@
 import React from "react";
 import { DynamicForm } from "../common/DynamicForm";
 
+import * as egreso from "../../services/ComprobantePago";
+
 const fieldsConfigEgreso = [
   {
     name: "fecha",
@@ -39,12 +41,7 @@ const fieldsConfigEgreso = [
     type: "text",
     validation: { required: "Concepto es obligatorio" },
   },
-  {
-    name: "descripcion_concepto",
-    label: "Descripción del concepto",
-    type: "textarea",
-    validation: { required: "Descripción del concepto es obligatoria" },
-  },
+
   {
     name: "banco",
     label: "Seleccione el banco",
@@ -88,7 +85,6 @@ const fieldsConfigEgreso = [
     label: "Adjuntar archivos en .zip",
     type: "file",
     accept: ".zip",
-    validation: { required: "Adjuntos es obligatorio" },
   },
 ];
 
@@ -111,12 +107,17 @@ const defaultValuesEgreso = {
 };
 
 export const FormCreateIngreso = () => {
+  const handleSubmit = async (data) => {
+    console.log(data, "dentro del submit ingreso");
+    const datos = await egreso.crearComprobante(data.items[0]);
+  };
   return (
     <DynamicForm
       fieldsConfig={fieldsConfigEgreso}
       formTitle="Comprobante de Egreso Virtual"
       buttonLabel="Crear ingreso"
       defaultValues={defaultValuesEgreso}
+      onSubmit={handleSubmit}
     />
   );
 };

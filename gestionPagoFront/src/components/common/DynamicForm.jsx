@@ -1,4 +1,4 @@
-import * as egreso from "../../services/areaPagos/getchCpsPendie"
+import * as egreso from "../../services/areaPagos/getchCpsPendie";
 import React, { useState } from "react";
 
 import {
@@ -15,12 +15,14 @@ import {
   FormLabel,
   FormControl,
 } from "react-bootstrap";
+import { useThemeContext } from "../../userContext/ContextProvider";
 
 export const DynamicForm = ({
   fieldsConfig,
   formTitle,
   defaultValues,
   buttonLabel,
+  onSubmit,
 }) => {
   const methods = useForm({ defaultValues });
   const {
@@ -28,11 +30,16 @@ export const DynamicForm = ({
     handleSubmit,
     formState: { errors },
   } = methods;
+
   const { fields, append, remove } = useFieldArray({ control, name: "items" });
-  const onSubmit = async (data) => {
-    console.log(data);
-    const datos = await egreso.crearComprobante(data.items[0])
-  };
+  const { setDataForm, DataForm } = useThemeContext();
+  // const onSubmit = async (data) => {
+  //   setDataForm(data);
+  //   // console.log(data);
+  //   // const datos = await egreso.crearComprobante(data.items[0]);
+  //   // console.log(data, "hola");
+  // };
+
   const [showForm, setShowForm] = useState(false);
 
   const handleShowForm = () => {
@@ -111,13 +118,7 @@ export const DynamicForm = ({
                 <hr />
               </div>
             ))}
-            <Button
-              type="button"
-              variant="secondary"
-              onClick={() => append({ name: "items" })}
-            >
-              Agregar Campo
-            </Button>
+
             <Button type="submit" variant="primary" className="submit-button">
               Guardar
             </Button>

@@ -1,19 +1,13 @@
 import React, { useState, useEffect } from "react";
-import {
-  fetchCpsPendie,
-  revisarCp,
-} from "../../services/areaPagos/getchCpsPendie";
+import { fetchCpsPendie } from "../../services/areaPagos/getchCpsPendie";
 
 export const AreaPago = () => {
   const [cpsPendientes, setCpsPendientes] = useState([]);
   const [cpSeleccionado, setCpSeleccionado] = useState(null);
   useEffect(() => {
-    fetchCpsPendie(setCpsPendientes);
+    // fetchCpsPendie(setCpsPendientes);
   }, []);
 
-  //   useEffect(() => {
-  //     fetchCpsPendientes(setCpsPendientes);
-  //   }, []);
   const handleRevisarCp = (cpId, decision) => {
     revisarCp(cpId, decision, setCpsPendientes);
   };
