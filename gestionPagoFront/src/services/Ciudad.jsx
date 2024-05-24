@@ -24,3 +24,39 @@ export const odtenerCiudad = async () => {
     return [];
   }
 };
+
+
+// Editar
+export const editarCiudad = async (ciudad_id, ciudad) => {
+  try {
+    const response = await axios.put(
+      `${GetBackendURL}/editar-ciudad/${ciudad_id}`,
+      ciudad
+    );
+    return response;
+  } catch (error) {
+    console.error("Error al editar la ciudad:", error);
+    throw error;
+  }
+};
+
+// Eliminar
+
+export const eliminarCiudad = async (ciudad_id) => {
+  try {
+    const response = await axios.delete(
+      `${BASE_BACKEND_URL}eliminar-ciudad/${ciudad_id}`
+    );
+
+    if (response.status === 200) {
+      console.log("Ciudad eliminado con éxito");
+      return true;
+    } else {
+      console.error("Error al eliminar el Ciudad");
+      return false;
+    }
+  } catch (error) {
+    console.error("Error al intentar eliminar la Ciudad:", error);
+    return false;
+  }
+};
