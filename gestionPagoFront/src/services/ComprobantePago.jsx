@@ -10,7 +10,7 @@ export const crearComprobante = async (datosFormIngreso) => {
     );
     console.log(`Enviando el formulario`, response);
   } catch (error) {
-    console.error("Error al revisar el CP:", error);
+    console.error("Error al enviar datos:", error);
   }
 };
 //
@@ -21,7 +21,7 @@ export const obtenerComprobantes = async () => {
     const response = await axios.get(`${GetBackendURL}cp/cp-principal`); // Cambia esta URL por tu endpoint real
     return response.data;
   } catch (error) {
-    console.error("Error fetching data: ", error);
+    console.error("Error al traer la data: ", error);
     return [];
   }
 };
