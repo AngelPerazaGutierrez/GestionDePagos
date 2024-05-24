@@ -10,18 +10,17 @@ export const crearComprobante = async (datosFormIngreso) => {
     );
     console.log(`Enviando el formulario`, response);
   } catch (error) {
-    console.error("Error al revisar el CP:", error);
+    console.error("Error al enviar datos:", error);
   }
 };
 //
-// Actualizar
 export const obtenerComprobantes = async () => {
   console.log(GetBackendURL, "comprobante");
   try {
     const response = await axios.get(`${GetBackendURL}cp/cp-principal`); // Cambia esta URL por tu endpoint real
     return response.data;
   } catch (error) {
-    console.error("Error fetching data: ", error);
+    console.error("Error al traer la data: ", error);
     return [];
   }
 };
@@ -29,10 +28,7 @@ export const obtenerComprobantes = async () => {
 // Editar
 export const editarComprobante = async (pc_id, comprobante) => {
   try {
-    const response = await axios.put(
-      `${GetBackendURL}cp/editar-cp/${pc_id}`,
-      comprobante
-    );
+    const response = await axios.put(`${GetBackendURL}cp/editar-cp/${pc_id}`);
     console.log(response, "ddddd");
     return response;
   } catch (error) {
@@ -46,7 +42,7 @@ export const editarComprobante = async (pc_id, comprobante) => {
 export const eliminarComprobante = async (comprobanteId) => {
   try {
     const response = await axios.delete(
-      `${BASE_BACKEND_URL}cp/eliminar-cp/${comprobanteId.id}`
+      `${GetBackendURL}cp/eliminar-cp/${comprobanteId}`
     );
 
     if (response.status === 200) {
