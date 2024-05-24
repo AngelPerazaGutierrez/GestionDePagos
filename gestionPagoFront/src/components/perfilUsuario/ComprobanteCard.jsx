@@ -13,44 +13,44 @@ import { Loading } from "../common/Loading";
 
 export const ComprobanteCard = () => {
   const [error, setError] = useState(null);
-  const Card = [
-    {
-      id: 1,
-      fecha: "2024-05-22",
-      ciudad: "Ciudad A",
-      nit: "123456789",
-      tercero: "Tercero A",
-      concepto: "Concepto A",
-      banco: "Banco A",
-      tipo_cuenta: "Cuenta corriente",
-      numero_cuenta: "123456789",
-      valor: 100,
-    },
-    {
-      id: 1,
-      fecha: "2024-05-22",
-      ciudad: "Ciudad A",
-      nit: "123456789",
-      tercero: "Tercero A",
-      concepto: "Concepto A",
-      banco: "Banco A",
-      tipo_cuenta: "Cuenta corriente",
-      numero_cuenta: "123456789",
-      valor: 100,
-    },
-    {
-      id: 1,
-      fecha: "2024-05-22",
-      ciudad: "Ciudad A",
-      nit: "123456789",
-      tercero: "Tercero A",
-      concepto: "Concepto A",
-      banco: "Banco A",
-      tipo_cuenta: "Cuenta corriente",
-      numero_cuenta: "123456789",
-      valor: 100,
-    },
-  ];
+  // const Card = [
+  //   {
+  //     id: 1,
+  //     fecha: "2024-05-22",
+  //     ciudad: "Ciudad A",
+  //     nit: "123456789",
+  //     tercero: "Tercero A",
+  //     concepto: "Concepto A",
+  //     banco: "Banco A",
+  //     tipo_cuenta: "Cuenta corriente",
+  //     numero_cuenta: "123456789",
+  //     valor: 100,
+  //   },
+  //   {
+  //     id: 1,
+  //     fecha: "2024-05-22",
+  //     ciudad: "Ciudad A",
+  //     nit: "123456789",
+  //     tercero: "Tercero A",
+  //     concepto: "Concepto A",
+  //     banco: "Banco A",
+  //     tipo_cuenta: "Cuenta corriente",
+  //     numero_cuenta: "123456789",
+  //     valor: 100,
+  //   },
+  //   {
+  //     id: 1,
+  //     fecha: "2024-05-22",
+  //     ciudad: "Ciudad A",
+  //     nit: "123456789",
+  //     tercero: "Tercero A",
+  //     concepto: "Concepto A",
+  //     banco: "Banco A",
+  //     tipo_cuenta: "Cuenta corriente",
+  //     numero_cuenta: "123456789",
+  //     valor: 100,
+  //   },
+  // ];
   const [informacionCard, setInformacionCard] = useState([]);
   useEffect(() => {
     const getData = async () => {
@@ -109,7 +109,7 @@ export const ComprobanteCard = () => {
       ) : (
         <Container>
           <Row>
-            {Card.map((transaccion) => (
+            {informacionCard.map((transaccion) => (
               <Col md="12">
                 <Comprobante
                   key={transaccion.id}
