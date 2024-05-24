@@ -1,4 +1,4 @@
-import * as egreso from "../../services/areaPagos/getchCpsPendie";
+// import * as egreso from "../../services/areaPagos/getchCpsPendie";
 import React, { useState } from "react";
 
 import {
@@ -47,7 +47,7 @@ export const DynamicForm = ({
   };
   return (
     <Container className="form-container">
-      <h1 className="form-title">{formTitle}</h1>
+      <p className="form-title">{formTitle}</p>
       <FormProvider {...methods}>
         {showForm && (
           <Form onSubmit={handleSubmit(onSubmit)}>

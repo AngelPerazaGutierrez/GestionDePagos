@@ -27,12 +27,13 @@ export const obtenerComprobantes = async () => {
 };
 
 // Editar
-export const editarComprobante = async (id, comprobante) => {
+export const editarComprobante = async (pc_id, comprobante) => {
   try {
     const response = await axios.put(
-      `${GetBackendURL}/editar-cp/${id}`,
+      `${GetBackendURL}cp/editar-cp/${pc_id}`,
       comprobante
     );
+    console.log(response, "ddddd");
     return response;
   } catch (error) {
     console.error("Error al editar el comprobante:", error);
@@ -45,7 +46,7 @@ export const editarComprobante = async (id, comprobante) => {
 export const eliminarComprobante = async (comprobanteId) => {
   try {
     const response = await axios.delete(
-      `${BASE_BACKEND_URL}/eliminar-cp/${comprobanteId}`
+      `${BASE_BACKEND_URL}/eliminar-cp/${comprobanteId.id}`
     );
 
     if (response.status === 200) {

@@ -114,19 +114,17 @@ export const FormCreateIngreso = ({
     // Verificar si estamos editando o creando un comprobante
 
     try {
-      // para almacenar la respuesta
       let response;
+
       if (initialValues.items[0].id) {
-        // Editar el comprobante si ya tiene un ID
-        response = await egreso.editarComprobante(
+        const response = await egreso.editarComprobante(
           initialValues.items[0].id,
           data.items[0]
         );
-        console.log("Comprobante editado:", response.data);
       } else {
         const datos = await egreso.crearComprobante(data.items[0]);
       }
-      // Llamar a la función onSave con los datos de la respuesta
+
       onSave(response.data);
     } catch (error) {}
     console.log(data, "dentro del submit ingreso");
@@ -135,7 +133,7 @@ export const FormCreateIngreso = ({
     <div className=" w-4">
       <DynamicForm
         fieldsConfig={fieldsConfigEgreso}
-        formTitle="Compro"
+        formTitle="Crear ingreso"
         buttonLabel={
           initialValues.items[0].id ? "Editar ingreso" : "Crear ingreso"
         }

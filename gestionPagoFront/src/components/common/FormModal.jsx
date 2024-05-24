@@ -9,7 +9,7 @@ export const FormModal = ({ isOpen, onClose, initialValues, onSave }) => {
   return (
     <Modal show={isOpen} onHide={onClose}>
       <Modal.Header closeButton>
-        <Modal.Title>Modal title</Modal.Title>
+        {/* <Modal.Title>Modal title</Modal.Title> */}
       </Modal.Header>
 
       <Modal.Body>
@@ -17,9 +17,9 @@ export const FormModal = ({ isOpen, onClose, initialValues, onSave }) => {
       </Modal.Body>
 
       <Modal.Footer>
-        <Button variant="secondary" onClick={onClose}>
+        {/* <Button variant="secondary" onClick={onClose}>
           Cerrar
-        </Button>
+        </Button> */}
       </Modal.Footer>
     </Modal>
   );
