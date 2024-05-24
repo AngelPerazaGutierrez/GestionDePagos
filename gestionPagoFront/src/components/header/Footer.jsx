@@ -24,19 +24,13 @@ export const Footer = () => {
           <h4>Seguimiento</h4>
           <ul className="social-media-links">
             <li>
-              <a>
-                ingreso-usuario
-              </a>
+              <a>ingreso-usuario</a>
             </li>
             <li>
-              <a>
-                validacion-contabilidad
-              </a>
+              <a>validacion-contabilidad</a>
             </li>
             <li>
-              <a>
-                aprobacion-admin
-              </a>
+              <a>aprobacion-admin</a>
             </li>
           </ul>
         </div>
@@ -45,8 +39,8 @@ export const Footer = () => {
           <h4>About Us</h4>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed semper
-            lacinia diam, quis mollis tellus tincidunt at. Mauris sit amet
-            dolor eget erat aliquam tincidunt.
+            lacinia diam, quis mollis tellus tincidunt at. Mauris sit amet dolor
+            eget erat aliquam tincidunt.
           </p>
         </div>
       </div>
@@ -57,4 +51,3 @@ export const Footer = () => {
     </footer>
   );
 };
-

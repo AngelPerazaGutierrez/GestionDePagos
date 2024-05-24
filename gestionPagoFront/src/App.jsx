@@ -10,19 +10,20 @@ import { ContextProvider } from "./userContext/ContextProvider";
 import { AdminPage } from "./pages/AdminPage";
 
 import { UsuarioPages } from "./pages/UsuarioPages";
-
+import { ComprobanteCard } from "./components/perfilUsuario/ComprobanteCard";
 function App() {
   return (
     <>
       <Router>
         <ContextProvider>
           <Header />
+
           <Routes>
             <Route path="/" element={<HomePages />} />
             <Route path="/admin" element={<AdminPage />} />
             <Route path="/user" element={<UsuarioPages />} />
-
-            <Route path="/login" element={<LoginPage />} />
+            <Route path="/card" element={<ComprobanteCard />} />
+            {/* <Route path="/login" element={<LoginPage />} /> */}
 
             {/* <Route
               path="/login"
@@ -35,6 +36,7 @@ function App() {
             {/* <Route path="/boot" element={<Bootcamp />} /> */}
             {/* <Route path="*" element={<ErrorPage />} /> */}
           </Routes>
+
           <Footer />
         </ContextProvider>
       </Router>

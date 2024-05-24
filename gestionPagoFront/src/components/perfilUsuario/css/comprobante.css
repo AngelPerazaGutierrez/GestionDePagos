@@ -1,6 +1,9 @@
 .containerComprobante {
   background-color: #f0f0f0;
-  /* Sombra ligera */
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 9px;
   transition: background-color 0.3s ease;
 }
 
@@ -14,9 +17,8 @@
   cursor: pointer;
 }
 
-.stylBoton {
+.stilosIcon {
   display: flex;
-
   justify-content: space-between;
   width: 100%;
 }

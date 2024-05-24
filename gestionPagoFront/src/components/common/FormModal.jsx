@@ -1,48 +1,26 @@
-import { useState } from "react";
+// src/components/FormModal.js
+
+import React from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import { FormCreateIngreso } from "../form/FormCreateIngreso";
 
-const FormModal = () => {
-  const [showModal, setShowModal] = useState(false);
-
-  const handleShowModal = () => {
-    setShowModal(true);
-  };
-
-  const handleCloseModal = () => {
-    setShowModal(false);
-  };
-
-  const handleSaveChanges = () => {
-    // Aquí puedes agregar la lógica para guardar los cambios del formulario
-    handleCloseModal();
-  };
-
+export const FormModal = ({ isOpen, onClose, initialValues, onSave }) => {
   return (
-    <>
-      <Button variant="primary" onClick={handleShowModal}>
-        Abrir Modal
-      </Button>
+    <Modal show={isOpen} onHide={onClose}>
+      <Modal.Header closeButton>
+        <Modal.Title>Modal title</Modal.Title>
+      </Modal.Header>
 
-      <Modal show={showModal} onHide={handleCloseModal}>
-        <Modal.Header closeButton>
-          <Modal.Title>Modal title</Modal.Title>
-        </Modal.Header>
+      <Modal.Body>
+        <FormCreateIngreso initialValues={initialValues} onSave={onSave} />
+      </Modal.Body>
 
-        <Modal.Body>
-          <FormCreateIngreso onSave={handleSaveChanges} />
-        </Modal.Body>
-
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleCloseModal}>
-            Cerrar
-          </Button>
-          <Button variant="primary" onClick={handleSaveChanges}>
-            Guardar cambios
-          </Button>
-        </Modal.Footer>
-      </Modal>
-    </>
+      <Modal.Footer>
+        <Button variant="secondary" onClick={onClose}>
+          Cerrar
+        </Button>
+      </Modal.Footer>
+    </Modal>
   );
 };

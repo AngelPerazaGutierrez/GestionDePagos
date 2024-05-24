@@ -8,6 +8,7 @@ export const HomePages = () => {
         className="justify-content-center align-items-center"
         style={{ height: "100vh" }}
       >
+        <Col md={4}></Col>
         <Col md={6}>
           <SignIn />
         </Col>
