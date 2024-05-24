@@ -13,53 +13,53 @@ import { Loading } from "../common/Loading";
 
 export const ComprobanteCard = () => {
   const [error, setError] = useState(null);
-  const informacionCard = [
-    {
-      id: 1,
-      fecha: "2024-05-22",
-      ciudad: "Ciudad A",
-      nit: "123456789",
-      tercero: "Tercero A",
-      concepto: "Concepto A",
-      banco: "Banco A",
-      tipo_cuenta: "Cuenta corriente",
-      numero_cuenta: "123456789",
-      valor: 100,
-    },
-    {
-      id: 1,
-      fecha: "2024-05-22",
-      ciudad: "Ciudad A",
-      nit: "123456789",
-      tercero: "Tercero A",
-      concepto: "Concepto A",
-      banco: "Banco A",
-      tipo_cuenta: "Cuenta corriente",
-      numero_cuenta: "123456789",
-      valor: 100,
-    },
-    {
-      id: 1,
-      fecha: "2024-05-22",
-      ciudad: "Ciudad A",
-      nit: "123456789",
-      tercero: "Tercero A",
-      concepto: "Concepto A",
-      banco: "Banco A",
-      tipo_cuenta: "Cuenta corriente",
-      numero_cuenta: "123456789",
-      valor: 100,
-    },
-  ];
-  // const [informacionCard, setInformacionCard] = useState([]);
-  // useEffect(() => {
-  //   const getData = async () => {
-  //     const data = await obtenerComprobantes();
-  //     setInformacionCard(data);
-  //   };
+  // const informacionCard = [
+  //   {
+  //     id: 1,
+  //     fecha: "2024-05-22",
+  //     ciudad: "Ciudad A",
+  //     nit: "123456789",
+  //     tercero: "Tercero A",
+  //     concepto: "Concepto A",
+  //     banco: "Banco A",
+  //     tipo_cuenta: "Cuenta corriente",
+  //     numero_cuenta: "123456789",
+  //     valor: 100,
+  //   },
+  //   {
+  //     id: 1,
+  //     fecha: "2024-05-22",
+  //     ciudad: "Ciudad A",
+  //     nit: "123456789",
+  //     tercero: "Tercero A",
+  //     concepto: "Concepto A",
+  //     banco: "Banco A",
+  //     tipo_cuenta: "Cuenta corriente",
+  //     numero_cuenta: "123456789",
+  //     valor: 100,
+  //   },
+  //   {
+  //     id: 1,
+  //     fecha: "2024-05-22",
+  //     ciudad: "Ciudad A",
+  //     nit: "123456789",
+  //     tercero: "Tercero A",
+  //     concepto: "Concepto A",
+  //     banco: "Banco A",
+  //     tipo_cuenta: "Cuenta corriente",
+  //     numero_cuenta: "123456789",
+  //     valor: 100,
+  //   },
+  // ];
+  const [informacionCard, setInformacionCard] = useState([]);
+  useEffect(() => {
+    const getData = async () => {
+      const data = await obtenerComprobantes();
+      setInformacionCard(data);
+    };
 
-  //   getData();
-  // }, []);
+    getData();
+  }, []);
 
   const handleDelete = async (comprobanteId) => {
     const confirmacion = await Swal.fire({

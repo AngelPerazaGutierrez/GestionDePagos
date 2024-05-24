@@ -46,7 +46,7 @@ export const editarComprobante = async (pc_id, comprobante) => {
 export const eliminarComprobante = async (comprobanteId) => {
   try {
     const response = await axios.delete(
-      `${BASE_BACKEND_URL}/eliminar-cp/${comprobanteId.id}`
+      `${BASE_BACKEND_URL}cp/eliminar-cp/${comprobanteId.id}`
     );
 
     if (response.status === 200) {
