@@ -116,8 +116,10 @@ export const FormCreateIngreso = ({
     try {
       // para almacenar la respuesta
       let response;
+      console.log(response, data, "hdhhdhdhdhhdh")
       if (initialValues.items[0].id) {
         // Editar el comprobante si ya tiene un ID
+      
         response = await egreso.editarComprobante(
           initialValues.items[0].id,
           data.items[0]

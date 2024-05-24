@@ -14,7 +14,6 @@ export const crearComprobante = async (datosFormIngreso) => {
   }
 };
 //
-// Actualizar
 export const obtenerComprobantes = async () => {
   console.log(GetBackendURL, "comprobante");
   try {
@@ -30,7 +29,7 @@ export const obtenerComprobantes = async () => {
 export const editarComprobante = async (id, comprobante) => {
   try {
     const response = await axios.put(
-      `${GetBackendURL}/editar-cp/${id}`,
+      `${GetBackendURL}cp/editar-cp/${id}`,
       comprobante
     );
     return response;
@@ -45,7 +44,7 @@ export const editarComprobante = async (id, comprobante) => {
 export const eliminarComprobante = async (comprobanteId) => {
   try {
     const response = await axios.delete(
-      `${BASE_BACKEND_URL}/eliminar-cp/${comprobanteId}`
+      `${GetBackendURL}cp/eliminar-cp/${comprobanteId}`
     );
 
     if (response.status === 200) {
