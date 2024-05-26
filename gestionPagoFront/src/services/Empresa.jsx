@@ -5,7 +5,7 @@ export const crearEmpresa = async (datosFormEmpresa) => {
   console.log(datosFormEmpresa, "empresa");
   try {
     const response = await axios.post(
-      `${GetBackendURL}empresa/registrar-empresa`,
+      `${GetBackendURL}empresa/editar-empresa/${empresa_nit}`,
       datosFormEmpresa
     );
     console.log(`Enviando el formulario`, response);
@@ -25,9 +25,8 @@ export const consultarEmpresa = async () => {
   }
 };
 
-
 // Editar
-export const editarEmpresa= async (empresa_nit, empresa) => {
+export const editarEmpresa = async (empresa_nit, empresa) => {
   try {
     const response = await axios.put(
       `${GetBackendURL}/editar-empresa/${empresa_nit}`,
@@ -45,7 +44,7 @@ export const editarEmpresa= async (empresa_nit, empresa) => {
 export const eliminarEmpresa = async (empresa_id) => {
   try {
     const response = await axios.delete(
-      `${BASE_BACKEND_URL}/eliminar-empresa/${empresa_id}`
+      `${GetBackendURL}/eliminar-empresa/${empresa_id}`
     );
 
     if (response.status === 200) {

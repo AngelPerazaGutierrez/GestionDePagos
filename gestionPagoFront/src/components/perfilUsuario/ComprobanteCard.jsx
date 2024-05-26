@@ -1,12 +1,18 @@
 import { useEffect, useState } from "react";
-import { Comprobante } from "../common/Comprobante"; // Asegúrate de que la ruta sea correcta
+import { Comprobante } from "./Comprobante"; // Asegúrate de que la ruta sea correcta
 import "../../assets/css/perfilUsuario/comprobanteCard.css";
-import { odtenerComprobantes } from "../../services/ComprobantePago";
-import { BsTrashFill } from "react-icons/bs";
-console.log(odtenerComprobantes, "Comprobante");
-export const ComprobanteCard = () => {
-    const [informacionCard, setInformacionCard] = useState([]);
+import Swal from "sweetalert2";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import {
+  obtenerComprobantes,
+  eliminarComprobante,
+} from "../../services/ComprobantePago";
+import { Loading } from "../common/Loading";
 
+export const ComprobanteCard = () => {
+  const [error, setError] = useState(null);
   // const informacionCard = [
   //   {
   //     id: 1,
@@ -45,21 +51,77 @@ export const ComprobanteCard = () => {
   //     valor: 100,
   //   },
   // ];
-  ///ssss
+  const [informacionCard, setInformacionCard] = useState([]);
+  useEffect(() => {
+    const getData = async () => {
+      const data = await obtenerComprobantes();
+      setInformacionCard(data);
+    };
 
-    useEffect(() => {
-      const getData = async () => {
-        const data = await odtenerComprobantes();
-        setInformacionCard(data);
-      };
+    getData();
+  }, []);
 
-      getData();
-    }, []);
+  const handleDelete = async (comprobanteId) => {
+    const confirmacion = await Swal.fire({
+      title: "¿Estás seguro?",
+      text: "¿Quieres eliminar este comprobante?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonText: "Sí, eliminar",
+      cancelButtonText: "Cancelar",
+      confirmButtonColor: "#dc3545",
+      cancelButtonColor: "#6c757d",
+    });
+
+    if (confirmacion.isConfirmed) {
+      try {
+        const eliminado = await eliminarComprobante(comprobanteId);
+        console.log(eliminado, comprobanteId, "eliminado");
+        if (eliminado) {
+          Swal.fire({
+            title: "¡Eliminado!",
+            text: "El comprobante ha sido eliminado correctamente.",
+            icon: "success",
+          });
+          console.log("Comprobante eliminado correctamente");
+        } else {
+          Swal.fire({
+            title: "Error",
+            text: "Hubo un error al intentar eliminar el comprobante.",
+            icon: "error",
+          });
+          console.error("Error al eliminar el comprobante");
+        }
+      } catch (error) {
+        Swal.fire({
+          title: "Error",
+          text: "Hubo un error al intentar eliminar el comprobante.",
+          icon: "error",
+        });
+        console.error("Error al intentar eliminar el comprobante:", error);
+      }
+    }
+  };
+
   return (
-    <div className="containerCard py-4   rounded  container mx-auto gap-1 w-full hidden lg:flex  justify-center items-center mb-4">
-      {informacionCard.map((transaccion) => (
-        <Comprobante key={transaccion.id} informacionCard={transaccion} />
-      ))}
+    <div className="containerCard py-4  rounded container  gap-1 w-full hidden lg:flex  justify-center items-center mb-4">
+      {error ? (
+        <Loading />
+      ) : (
+        <Container>
+          <Row>
+            {informacionCard.map((transaccion) => (
+              <Col md="12">
+                <Comprobante
+                  key={transaccion.id}
+                  informacionCard={transaccion}
+                  onClick={handleDelete}
+                />
+              </Col>
+            ))}
+          </Row>
+        </Container>
+      )}
     </div>
   );
 };

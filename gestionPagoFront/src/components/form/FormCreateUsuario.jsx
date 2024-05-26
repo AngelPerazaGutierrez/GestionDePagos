@@ -39,14 +39,14 @@ const fieldsConfigUsuario = [
   },
   {
     name: "proceso",
-    label: "Proceso",    
+    label: "Proceso",
     type: "select",
     options: [
       { value: "Financiera", label: "Financiera" },
       { value: "Gerencia", label: "Gerencia" },
       { value: "Nomina", label: "Nomina" },
       { value: "Tesoreria", label: "Tesoreria" },
-    ],    
+    ],
     validation: { required: "Proceso es obligatorio" },
   },
 ];
@@ -67,6 +67,7 @@ export const FormCreateUsuario = () => {
   const handleSubmit = async (data) => {
     console.log(data, "dentro del usuario");
     const datos = await user.registroUsuario(data.items[0]);
+    reset("");
   };
   return (
     <DynamicForm

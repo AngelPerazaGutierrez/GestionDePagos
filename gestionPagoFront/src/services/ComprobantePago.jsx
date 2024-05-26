@@ -1,7 +1,6 @@
 import axios from "axios";
 import { GetBackendURL } from "../config/GetBackendURL";
-
-
+// Crear
 export const crearComprobante = async (datosFormIngreso) => {
   console.log(datosFormIngreso);
   try {
@@ -11,24 +10,50 @@ export const crearComprobante = async (datosFormIngreso) => {
     );
     console.log(`Enviando el formulario`, response);
   } catch (error) {
-    console.error("Error al revisar el CP:", error);
+    console.error("Error al enviar datos:", error);
   }
 };
-
-export const odtenerComprobantes = async () => {
+//
+export const obtenerComprobantes = async () => {
   console.log(GetBackendURL, "comprobante");
   try {
     const response = await axios.get(`${GetBackendURL}cp/cp-principal`); // Cambia esta URL por tu endpoint real
     return response.data;
   } catch (error) {
-    console.error("Error fetching data: ", error);
+    console.error("Error al traer la data: ", error);
     return [];
   }
 };
 
-// export const revisarCp = async (cpId, setCpsPendientes) => {
-//   try {
-//     const response = await axios.put(`/api/cps/${cpId}`);
-//     console.log(
-//       `Simulando revisión del CP con ID: ${cpId}`
-//     );
+// Editar
+export const editarComprobante = async (pc_id, comprobante) => {
+  try {
+    const response = await axios.put(`${GetBackendURL}cp/editar-cp/${pc_id}`);
+    console.log(response, "ddddd");
+    return response;
+  } catch (error) {
+    console.error("Error al editar el comprobante:", error);
+    throw error;
+  }
+};
+
+// Eliminar
+
+export const eliminarComprobante = async (comprobanteId) => {
+  try {
+    const response = await axios.delete(
+      `${GetBackendURL}cp/eliminar-cp/${comprobanteId}`
+    );
+
+    if (response.status === 200) {
+      console.log("Comprobante eliminado con éxito");
+      return true;
+    } else {
+      console.error("Error al eliminar el comprobante");
+      return false;
+    }
+  } catch (error) {
+    console.error("Error al intentar eliminar el comprobante:", error);
+    return false;
+  }
+};

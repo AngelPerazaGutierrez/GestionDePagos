@@ -1,21 +1,28 @@
 import axios from "axios";
 import { GetBackendURL } from "../config/GetBackendURL";
-
+// const GetBackendURL = "http://localhost:5000";
+// post
 export const crearBanco = async (datosFormBanco) => {
   console.log(datosFormBanco);
   try {
     const response = await axios.post(
       `${GetBackendURL}banco/registrar-banco`,
-      datosFormBanco
+      datosFormBanco,
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
     );
+
     console.log(`Enviando el formulario`, response);
   } catch (error) {
-    console.error("Error al revisar el banco:", error);
+    console.error("Error al registrar el banco:", error);
   }
 };
 
-
-export const odtenerBanco = async () => {
+// get
+export const obtenerBanco = async () => {
   console.log(GetBackendURL, "comprobante");
   try {
     const response = await axios.get(`${GetBackendURL}banco/listar-todo`); // Cambia esta URL por tu endpoint real
@@ -27,10 +34,10 @@ export const odtenerBanco = async () => {
 };
 
 // Editar
-export const editarBanco = async (banco_id, banco) => {
+export const editarBanco = async (bancoNit, bancoId, banco) => {
   try {
     const response = await axios.put(
-      `${GetBackendURL}/editar-banco/${banco_id}`,
+      `${GetBackendURL}banco/editar-banco/${bancoId}/${bancoNit}`,
       banco
     );
     return response;
@@ -45,7 +52,7 @@ export const editarBanco = async (banco_id, banco) => {
 export const eliminarBanco = async (banco_id) => {
   try {
     const response = await axios.delete(
-      `${BASE_BACKEND_URL}/eliminar-banco/${banco_id}`
+      `${GetBackendURL}bancoeliminar-banco/${banco_id}`
     );
 
     if (response.status === 200) {
@@ -58,5 +65,17 @@ export const eliminarBanco = async (banco_id) => {
   } catch (error) {
     console.error("Error al intentar eliminar el banco:", error);
     return false;
+  }
+};
+
+
+export const odtenerBanco = async () => {
+  console.log(GetBackendURL, "comprobante");
+  try {
+    const response = await axios.get(`${GetBackendURL}banco/listar-todo`); // Cambia esta URL por tu endpoint real
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching data: ", error);
+    return [];
   }
 };

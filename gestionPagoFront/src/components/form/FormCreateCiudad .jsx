@@ -22,6 +22,7 @@ export const FormCreateCiudad = () => {
   const handleSubmit = async (data) => {
     console.log(data, "dentro del submit ciudad");
     const datos = await ciudad.crearCiudad(data.items[0]);
+    reset("");
   };
   return (
     <>

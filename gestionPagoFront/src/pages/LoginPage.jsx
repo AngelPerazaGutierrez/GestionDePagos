@@ -1,6 +1,6 @@
 import React from "react";
 // import { PagesDashboard } from "./PagesDashboard";
-import { Dashboard } from "../components/common/Dashboard";
+// import { Dashboard } from "../components/common/Dashboard";
 // import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -16,9 +16,7 @@ export const LoginPage = () => {
     <div className="container-flued  containerPage pt-5">
       {/* <Container> */}
       <Row>
-        <Col sm={4}>
-          <Dashboard />
-        </Col>
+        <Col sm={4}>{/* <Dashboard /> */}</Col>
         <Col sm={4} className="">
           {/* <FormComparateIngres /> */}
           <div className="form mt-5 ">

@@ -106,18 +106,39 @@ const defaultValuesEgreso = {
   ],
 };
 
-export const FormCreateIngreso = () => {
+export const FormCreateIngreso = ({
+  initialValues = defaultValuesEgreso,
+  onSave,
+}) => {
   const handleSubmit = async (data) => {
+    try {
+      let response;
+
+      if (initialValues.items[0].id) {
+        const response = await egreso.editarComprobante(
+          initialValues.items[0].id,
+          data.items[0]
+        );
+      } else {
+        const datos = await egreso.crearComprobante(data.items[0]);
+      }
+
+      onSave(response.data);
+    } catch (error) {}
     console.log(data, "dentro del submit ingreso");
-    const datos = await egreso.crearComprobante(data.items[0]);
+    reset("");
   };
   return (
-    <DynamicForm
-      fieldsConfig={fieldsConfigEgreso}
-      formTitle="Comprobante de Egreso Virtual"
-      buttonLabel="Crear ingreso"
-      defaultValues={defaultValuesEgreso}
-      onSubmit={handleSubmit}
-    />
+    <div className="w-4">
+      <DynamicForm
+        fieldsConfig={fieldsConfigEgreso}
+        formTitle="Crear ingreso"
+        buttonLabel={
+          initialValues.items[0].id ? "Editar ingreso" : "Crear ingreso"
+        }
+        defaultValues={defaultValuesEgreso}
+        onSubmit={handleSubmit}
+      />
+    </div>
   );
 };
