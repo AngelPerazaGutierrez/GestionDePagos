@@ -28,6 +28,7 @@ export const DynamicForm = ({
   const {
     control,
     handleSubmit,
+    reset,
     formState: { errors },
   } = methods;
 
@@ -43,13 +44,13 @@ export const DynamicForm = ({
   const [showForm, setShowForm] = useState(false);
 
   const handleShowForm = () => {
-    setShowForm(true);
+    setShowForm(!showForm);
   };
   return (
     <Container className="form-container">
       <p className="form-title">{formTitle}</p>
       <FormProvider {...methods}>
-        {showForm && (
+        {showForm ? (
           <Form onSubmit={handleSubmit(onSubmit)}>
             {fields.map((field, index) => (
               <div key={field.id}>
@@ -123,8 +124,7 @@ export const DynamicForm = ({
               Guardar
             </Button>
           </Form>
-        )}
-        {!showForm && (
+        ) : (
           <Button type="button" variant="secondary" onClick={handleShowForm}>
             {buttonLabel}
           </Button>

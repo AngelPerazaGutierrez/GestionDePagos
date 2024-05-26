@@ -8,6 +8,11 @@ export const ContextProvider = ({ children }) => {
   // funcion para manejar el perfil
   const [showPagesProfile, setshowPagesProfile] = useState(false);
   const [selectedPage, setSelectedPage] = useState("Inicio");
+  // paginas de administrador
+  const [swhoPagesAdmin, setswhoPagesAdmin] = useState(false);
+  // sesion fromulario
+  const [formType, setFormType] = useState("");
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   // funciones de navegacion protejidad
   const login = () => {
@@ -27,6 +32,13 @@ export const ContextProvider = ({ children }) => {
     setSelectedPage,
     showPagesProfile,
     setshowPagesProfile,
+    swhoPagesAdmin,
+    setswhoPagesAdmin,
+    // formulario
+    isModalOpen,
+    setIsModalOpen,
+    formType,
+    setFormType,
   };
 
   return (

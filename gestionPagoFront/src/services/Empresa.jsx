@@ -5,7 +5,7 @@ export const crearEmpresa = async (datosFormEmpresa) => {
   console.log(datosFormEmpresa, "empresa");
   try {
     const response = await axios.post(
-      `${GetBackendURL}empresa/registrar-empresa`,
+      `${GetBackendURL}empresa/editar-empresa/${empresa_nit}`,
       datosFormEmpresa
     );
     console.log(`Enviando el formulario`, response);

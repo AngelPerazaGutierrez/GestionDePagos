@@ -5,8 +5,14 @@ export const crearCiudad = async (datosFormCiudad) => {
   console.log(datosFormCiudad);
   try {
     const response = await axios.post(
-      `${GetBackendURL}ciudad/registrar-ciudad`,
-      datosFormCiudad
+      `${GetBackendURL}ciudad/editar-ciudad/`,
+
+      datosFormCiudad,
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
     );
     console.log(`Enviando el formulario`, response);
   } catch (error) {
@@ -14,7 +20,7 @@ export const crearCiudad = async (datosFormCiudad) => {
   }
 };
 
-export const odtenerCiudad = async () => {
+export const obtenerCiudad = async () => {
   console.log(GetBackendURL, "comprobante");
   try {
     const response = await axios.get(`${GetBackendURL}ciudad/listar-ciudad`);
@@ -29,7 +35,7 @@ export const odtenerCiudad = async () => {
 export const editarCiudad = async (ciudad_id, ciudad) => {
   try {
     const response = await axios.put(
-      `${GetBackendURL}/editar-ciudad/${ciudad_id}`,
+      `${GetBackendURL}ciudad/editar-ciudad/${ciudad_id}`,
       ciudad
     );
     return response;
@@ -44,7 +50,7 @@ export const editarCiudad = async (ciudad_id, ciudad) => {
 export const eliminarCiudad = async (ciudad_id) => {
   try {
     const response = await axios.delete(
-      `${GetBackendURL}eliminar-ciudad/${ciudad_id}`
+      `${GetBackendURL}ciudad/eliminar-ciudad/${ciudad_id}`
     );
 
     if (response.status === 200) {

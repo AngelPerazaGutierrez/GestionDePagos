@@ -21,7 +21,7 @@ const fieldsConfig = [
     type: "select",
     options: [
       { value: "Ahorros", label: "Ahorros" },
-      { value: "Corriente", label: "Corriente" }
+      { value: "Corriente", label: "Corriente" },
     ],
     validation: { required: "El tipo de cuenta es obligatorio" },
   },
@@ -62,6 +62,7 @@ export const FormCreateEmpresa = () => {
   const handleSubmit = async (data) => {
     console.log(data, "dentro del submit empresa");
     const datos = await empresa.crearEmpresa(data.items[0]);
+    reset("");
   };
 
   return (

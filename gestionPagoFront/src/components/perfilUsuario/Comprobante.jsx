@@ -33,19 +33,18 @@ export const Comprobante = ({ informacionCard, onClick }) => {
   };
 
   const handleSave = (data) => {
-    console.log("Datos guardados:", data);
     setFormData(data);
     handleCloseModal();
   };
   return (
-    <div className="containerComprobante  dflex shadow ">
+    <div className="containerComprobante   shadow ">
       <div className="  d-flex justify-content-arouter stilosIcon">
         <h5>Transacción #{id}</h5>
         <div className="d-flex gap-4 my-4 containerButo">
           <BsTrashFill className="fs-5 text-secondary" onClick={onClick} />
           <BsPencilFill
             className="fs-5 text-secondary"
-            onClick={handleOpenModal}
+            onClick={() => handleOpenModal(crearIngreso)}
           />
           <FormModal
             isOpen={isEditModalOpen}

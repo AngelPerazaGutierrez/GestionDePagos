@@ -28,7 +28,7 @@ export const consultarUsuario = async () => {
 export const editarUsuario = async (usuario_cedula, usuario) => {
   try {
     const response = await axios.put(
-      `${GetBackendURL}/editar-usuario/${usuario_cedula}`,
+      `${GetBackendURL}usuario/editar-usuario/${usuario_cedula}`,
       usuario
     );
     return response;
@@ -43,7 +43,7 @@ export const editarUsuario = async (usuario_cedula, usuario) => {
 export const eliminarUsuario = async (usuario_id) => {
   try {
     const response = await axios.delete(
-      `${GetBackendURL}/eliminar-usuario/${usuario_id}`
+      `${GetBackendURL}usuario/eliminar-usuario/${usuario_id}`
     );
 
     if (response.status === 200) {

@@ -3,8 +3,13 @@ import "../../assets/css/common/costomButton.css";
 export const CustomButton = ({ onClick, text, icon, custo }) => {
   return (
     <button onClick={onClick} className={`btn ${custo}`}>
-      {icon && <span className="custom-button-icon">{icon}</span>}
-      {text}
+      <div className="">
+        {icon && (
+          <span className="d-flex align-items-center gap-1">
+            {icon} {text}
+          </span>
+        )}
+      </div>
     </button>
   );
 };
