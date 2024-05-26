@@ -67,3 +67,15 @@ export const eliminarBanco = async (banco_id) => {
     return false;
   }
 };
+
+
+export const odtenerBanco = async () => {
+  console.log(GetBackendURL, "comprobante");
+  try {
+    const response = await axios.get(`${GetBackendURL}banco/listar-todo`); // Cambia esta URL por tu endpoint real
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching data: ", error);
+    return [];
+  }
+};
