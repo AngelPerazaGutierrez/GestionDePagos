@@ -25,3 +25,10 @@ export const odtenerComprobantes = async () => {
     return [];
   }
 };
+
+// export const revisarCp = async (cpId, setCpsPendientes) => {
+//   try {
+//     const response = await axios.put(`/api/cps/${cpId}`);
+//     console.log(
+//       `Simulando revisión del CP con ID: ${cpId}`
+//     );
