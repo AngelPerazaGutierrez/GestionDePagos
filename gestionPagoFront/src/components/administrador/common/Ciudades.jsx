@@ -42,10 +42,10 @@ export const Ciudades = ({ informacionCiudades, onClick }) => {
     }
   };
   return (
-    <div className="containerComprobante  dflex shadow ">
+    <div className="containerComprobante  dflex shadow  ">
       <div className="  d-flex justify-content-arouter stilosIcon">
         <h5>Ciudades</h5>
-        <div className="d-flex gap-4 my-4 containerButo">
+        <div className="d-flex gap-4 my-4 icons icons containerButo">
           <BsTrashFill className="fs-5 text-secondary" onClick={handleDelete} />
           <BsPencilFill
             className="fs-5 text-secondary"
@@ -60,7 +60,7 @@ export const Ciudades = ({ informacionCiudades, onClick }) => {
             formType={formType}
             onSave={handleSave}
             onDelete={handleDelete}
-            bancoId={selectedBancoId}
+            // bancoId={selectedBancoId}
           />
         </div>
       </div>

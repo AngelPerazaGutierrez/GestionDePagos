@@ -54,10 +54,10 @@ export const Bancos = ({ informacionBanco, onClick, onEdit }) => {
     <div className="containerComprobante  dflex shadow ">
       <div className="  d-flex justify-content-arouter stilosIcon">
         <h5>Bancos</h5>
-        <div className="d-flex gap-4 my-4 containerButo">
-          <BsTrashFill className="fs-5 text-secondary" onClick={handleDelete} />
+        <div className="d-flex gap-4 my-4 containerButo icons">
+          <BsTrashFill className="fs-5 " onClick={handleDelete} />
           <BsPencilFill
-            className="fs-5 text-secondary"
+            className="fs-5  "
             onClick={() => handleOpenModal("crearBancos", informacionBanco.id)}
           />
 

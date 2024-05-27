@@ -1,0 +1,13 @@
+.text-secondary {
+  color: grey;
+}
+
+.icons {
+  color: grey;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.icons:hover {
+  color: #302939;
+}

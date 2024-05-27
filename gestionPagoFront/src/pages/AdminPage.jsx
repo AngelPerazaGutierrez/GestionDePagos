@@ -13,16 +13,17 @@ import { CompoEmpresa } from "../components/administrador/CompoEmpresa";
 import { DashboardAdmini } from "../components/administrador/DashboardAdmini";
 import { useThemeContext } from "../userContext/ContextProvider";
 import { PerfilAdmin } from "../components/administrador/PerfilAdmin";
+import { PerfilBanco } from "../components/administrador/pagesPerfil/PerfilBanco";
 
 export const AdminPage = () => {
   const { selectedPage, setSelectedPage, setshowPagesProfile } =
     useThemeContext();
   const renderSelectedPage = () => {
     switch (selectedPage) {
-      case "perfil del administrasion":
+      case "Perfil usuario":
         return <PerfilAdmin />;
       case "Visualizar los bancos":
-        return <CompoBanco />;
+        return <PerfilBanco />;
       case "Visualizar las ciudades":
         return <CompoCiudades />;
       case "Visualizar  empleados":
@@ -30,29 +31,26 @@ export const AdminPage = () => {
       case "Visualizar  empresas":
         return <CompoEmpresa />;
       default:
-        return <CompoBanco />;
+        return <PerfilAdmin />;
     }
   };
   return (
     <div
-      className="justify-content-center align-items-center"
-      style={{ height: "100vh" }}
+      className="justify-content-center "
+      style={{ height: "100vh", marginTop: "100px" }}
     >
       {/* <Container> */}
-      <Row
-        className="justify-content-center border align-items-center"
-        style={{ height: "100vh" }}
-      >
-        <Col md={7} className="d-flex ">
+      <Row className="d-flex justify-content-center align-items-center">
+        <Col md={7} className="d-flex  ">
           <DashboardAdmini />
-          <FormCreateBanco />
+          {/* <FormCreateBanco />
           <FormCreateUsuario />
           <FormCreateCiudad />
-          <FormCreateEmpresa />
+          <FormCreateEmpresa /> */}
         </Col>
-        <Col md={6}>{renderSelectedPage()}</Col>
+        <Col md={7}>{renderSelectedPage()}</Col>
       </Row>
-      <Row className="justify-content-center border align-items-center">
+      <Row className="justify-content-center align-items-center">
         <Col md={6}></Col>
       </Row>
     </div>

@@ -1,9 +1,9 @@
 /* dashboard.css */
 
 .profile-container {
-  position: fixed; /* Makes the container fixed to the viewport */
-  top: 0; /* Positions the container at the top of the viewport */
-  left: 0; /* Positions the container at the left of the viewport */
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 20%;
   height: 100%;
   display: flex;

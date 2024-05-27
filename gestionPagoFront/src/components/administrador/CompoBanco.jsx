@@ -8,53 +8,53 @@ import { Bancos } from "./common/Bancos";
 console.log(obtenerBanco, "Comprobante");
 export const CompoBanco = () => {
   const [error, setError] = useState(null);
-  // const informacionBancos = [
-  //   {
-  //     id: 1,
-  //     fecha: "2024-05-22",
-  //     ciudad: "Ciudad A",
-  //     nit: "123456789",
-  //     tercero: "Tercero A",
-  //     concepto: "Concepto A",
-  //     banco: "Banco A",
-  //     tipo_cuenta: "Cuenta corriente",
-  //     nombre_banco: "Banco de Bogota",
-  //     valor: 100,
-  //   },
-  //   {
-  //     id: 1,
-  //     fecha: "2024-05-22",
-  //     ciudad: "Ciudad A",
-  //     nit: "123456789",
-  //     tercero: "Tercero A",
-  //     concepto: "Concepto A",
-  //     banco: "Banco A",
-  //     tipo_cuenta: "Cuenta corriente",
-  //     nombre_banco: "Bancolombia",
-  //     valor: 100,
-  //   },
-  //   {
-  //     id: 1,
-  //     fecha: "2024-05-22",
-  //     ciudad: "Ciudad A",
-  //     nit: "123456789",
-  //     tercero: "Tercero A",
-  //     concepto: "Concepto A",
-  //     banco: "Banco A",
-  //     tipo_cuenta: "Cuenta corriente",
-  //     nombre_banco: " Virtual del Banco AV Villas ",
-  //     valor: 100,
-  //   },
-  // ];
-  const [informacionBancos, setInformacionBancos] = useState([]);
-  useEffect(() => {
-    const getData = async () => {
-      const data = await obtenerBanco();
-      setInformacionBancos(data);
-    };
+  const informacionBancos = [
+    {
+      id: 1,
+      fecha: "2024-05-22",
+      ciudad: "Ciudad A",
+      nit: "123456789",
+      tercero: "Tercero A",
+      concepto: "Concepto A",
+      banco: "Banco A",
+      tipo_cuenta: "Cuenta corriente",
+      nombre_banco: "Banco de Bogota",
+      valor: 100,
+    },
+    {
+      id: 1,
+      fecha: "2024-05-22",
+      ciudad: "Ciudad A",
+      nit: "123456789",
+      tercero: "Tercero A",
+      concepto: "Concepto A",
+      banco: "Banco A",
+      tipo_cuenta: "Cuenta corriente",
+      nombre_banco: "Bancolombia",
+      valor: 100,
+    },
+    {
+      id: 1,
+      fecha: "2024-05-22",
+      ciudad: "Ciudad A",
+      nit: "123456789",
+      tercero: "Tercero A",
+      concepto: "Concepto A",
+      banco: "Banco A",
+      tipo_cuenta: "Cuenta corriente",
+      nombre_banco: " Virtual del Banco AV Villas ",
+      valor: 100,
+    },
+  ];
+  // const [informacionBancos, setInformacionBancos] = useState([]);
+  // useEffect(() => {
+  //   const getData = async () => {
+  //     const data = await obtenerBanco();
+  //     setInformacionBancos(data);
+  //   };
 
-    getData();
-  }, []);
+  //   getData();
+  // }, []);
 
   //   const handleDelete = async (comprobanteId) => {
   //     const confirmacion = await Swal.fire({

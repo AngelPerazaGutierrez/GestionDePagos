@@ -54,7 +54,7 @@ export const Empresa = ({ informacionEmpresa, onClick }) => {
     <div className="containerComprobante  dflex shadow ">
       <div className="  d-flex justify-content-arouter stilosIcon">
         <h5>Empresas</h5>
-        <div className="d-flex gap-4 my-4 containerButo">
+        <div className="d-flex gap-4 my-4 icons containerButo">
           <BsTrashFill className="fs-5 text-secondary" onClick={onClick} />
           <BsPencilFill
             className="fs-5 text-secondary"

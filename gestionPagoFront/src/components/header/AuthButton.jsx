@@ -11,8 +11,7 @@ export const AuthButton = () => {
 
   const handleLogout = () => {
     logout();
-    navigate("/home");
-    alert("login");
+    navigate("/user");
   };
   const handleLogin = () => {
     login();
