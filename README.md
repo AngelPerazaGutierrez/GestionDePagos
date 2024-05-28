@@ -1,2 +1,3 @@
 # GestionDePagos
-Plataforma Web que gestiona los pagos de una compañia
+Plataforma Web que gestiona el flujo de pagos de una compañia en la parte contable y tesorera.
+Tecnologia trabajada REACT.
