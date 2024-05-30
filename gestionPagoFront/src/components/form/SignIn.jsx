@@ -22,13 +22,15 @@ export const SignIn = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-
+  alert(selectedValue);
   const onSubmit = async (data) => {
     console.log(data);
+    navigate("/user");
   };
   const handleChange = (event) => {
     const selectedValue = event.target.value;
     setSelectedOption(selectedValue);
+    console.log(selectedValue);
   };
   return (
     <div className="shadow formCss">
@@ -99,7 +101,7 @@ export const SignIn = () => {
           </>
 
           <div className="d-flex justify-content-center mb-3">
-            <CustomButton text="Iniciar sesión" className="" />
+            <CustomButton text="Iniciar sesión" className="text-center" />
           </div>
         </form>
       </div>

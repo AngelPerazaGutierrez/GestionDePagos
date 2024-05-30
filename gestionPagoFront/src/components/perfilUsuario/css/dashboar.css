@@ -1,8 +1,8 @@
 .profile-container {
-  position: fixed; /* Makes the container fixed to the viewport */
-  top: 0; /* Positions the container at the top of the viewport */
-  left: 0; /* Positions the container at the left of the viewport */
-  width: 20%;
+  position: fixed; /* Hace que el contenedor se fije en la ventana del navegador */
+  top: 0; /* Posiciona el contenedor en la parte superior de la ventana del navegador */
+  left: 0; /* Posiciona el contenedor en el borde izquierdo de la ventana del navegador */
+  width: 20%; /* Asegura que el contenedor ocupe todo el ancho de la ventana del navegador */
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -11,6 +11,16 @@
   color: #fff;
   padding: 20px;
   font-family: Arial, sans-serif;
+}
+.namePerfil {
+  width: 40%;
+}
+@media (max-width: 768px) {
+  /* Estilos para pantallas de hasta 768px de ancho */
+  .profile-container {
+    width: 100%;
+    position: relative;
+  }
 }
 
 .profile-picture {
