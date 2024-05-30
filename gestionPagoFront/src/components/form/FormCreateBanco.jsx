@@ -1,6 +1,6 @@
 import { DynamicForm } from "../common/DynamicForm";
 import * as banco from "../../services/Bonco";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 const fieldsConfigBanco = [
   {
     name: "nit",
@@ -28,12 +28,26 @@ const fieldsConfigBanco = [
 
 export const FormCreateBanco = () => {
   const defaultValues = {
-    items: [{ nit: "", tipo_cuenta: "Ahorro", nombre_banco: "" }],
+    items: [{ nit: "", tipo_cuenta: "Ahorros", nombre_banco: "" }],
   };
+  const [formData, setFormData] = useState(defaultValues);
+
+    useEffect(() => {
+        setFormData(defaultValues);
+    }, [defaultValues, bancoId]);
+
   const handleSubmit = async (data) => {
     console.log(data, "dentro del submit banco");
     const datos = await banco.crearBanco(data.items[0]);
-    reset("");
+    reset();
+
+    const handleSubmit = (e) => {
+      e.preventDefault();
+      setFormData({ ...formData, id: bancoId }); // Incluye bancoId en los datos enviados
+      resetForm();
+  };
+
+  
   };
   return (
     <DynamicForm
@@ -42,7 +56,7 @@ export const FormCreateBanco = () => {
       buttonLabel=" Formulario de los Banco"
       defaultValues={defaultValues}
       onSubmit={handleSubmit}
-      // bancoId={bancoId}
+      bancoId={bancoId}
     />
   );
 };

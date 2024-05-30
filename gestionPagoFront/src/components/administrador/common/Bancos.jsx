@@ -7,10 +7,10 @@ import { useThemeContext } from "../../../userContext/ContextProvider";
 import { eliminarBanco, editarBanco } from "../../../services/Bonco";
 
 export const Bancos = ({ informacionBanco, onClick, onEdit }) => {
-  const { nit, nombre_banco, tipo_cuenta } = informacionBanco;
+  const { id, nit, nombre_banco, tipo_cuenta } = informacionBanco;
 
   const defaultValues = {
-    items: [{ nit: "", tipo_cuenta: "Ahorro", nombre_banco: "" }],
+    items: [{ id:"", nit: "", tipo_cuenta: "Ahorro", nombre_banco: "" }],
   };
   // useContext
   const { formType, setFormType, isModalOpen, setIsModalOpen } =
@@ -21,6 +21,7 @@ export const Bancos = ({ informacionBanco, onClick, onEdit }) => {
     setFormType(type);
     setIsModalOpen(true);
     setSelectedBancoId(bancoId);
+    console.log(bancoId)
   };
 
   const handleCloseModal = () => {
@@ -33,29 +34,30 @@ export const Bancos = ({ informacionBanco, onClick, onEdit }) => {
     try {
       const response = await editarBanco(selectedBancoId);
       console.log("Banco editado:", response.data);
-      handleCloseModal();
+      console.log(data)
+      // handleCloseModal();
     } catch (error) {
       console.error("Error al editar el banco:", error);
     }
   };
 
   // delelete bonco
-  const handleDelete = async () => {
-    try {
-      const response = await eliminarBanco(selectedBancoId);
-      console.log("Banco eliminado:", response.data);
-      handleCloseModal();
-    } catch (error) {
-      console.error("Error al eliminar el banco:", error);
-    }
-  };
+  // const handleDelete = async () => {
+  //   try {
+  //     const response = await eliminarBanco(selectedBancoId);
+  //     console.log("Banco eliminado:", response.data);
+  //     handleCloseModal();
+  //   } catch (error) {
+  //     console.error("Error al eliminar el banco:", error);
+  //   }
+  // };
 
   return (
     <div className="containerComprobante  dflex shadow ">
       <div className="  d-flex justify-content-arouter stilosIcon">
         <h5>Bancos</h5>
         <div className="d-flex gap-4 my-4 containerButo icons">
-          <BsTrashFill className="fs-5 " onClick={handleDelete} />
+          {/* <BsTrashFill className="fs-5 " onClick={handleDelete} /> */}
           <BsPencilFill
             className="fs-5  "
             onClick={() => handleOpenModal("crearBancos", informacionBanco.id)}
@@ -67,12 +69,15 @@ export const Bancos = ({ informacionBanco, onClick, onEdit }) => {
             formType={formType}
             defaultValues={defaultValues}
             onSave={handleSave}
-            onDelete={handleDelete}
+            // onDelete={handleDelete}
             bancoId={selectedBancoId}
           />
         </div>
       </div>
       <div className="culumnadata items d-flex">
+        <div>
+          <strong>ID:</strong> {id}
+        </div>
         <div>
           <strong>NIT:</strong> {nit}
         </div>

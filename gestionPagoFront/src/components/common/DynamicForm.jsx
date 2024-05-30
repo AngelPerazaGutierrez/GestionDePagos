@@ -1,5 +1,5 @@
 // import * as egreso from "../../services/areaPagos/getchCpsPendie";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import {
   useForm,
@@ -23,6 +23,7 @@ export const DynamicForm = ({
   defaultValues,
   buttonLabel,
   onSubmit,
+  bancoId
 }) => {
   const methods = useForm({ defaultValues });
   const {
