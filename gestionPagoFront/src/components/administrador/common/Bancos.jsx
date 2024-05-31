@@ -112,17 +112,6 @@ export const Bancos = ({ informacionBanco, onClick, onEdit }) => {
           </div>
         </div>
       )}
-      {/* <div className="culumnadata items d-flex">
-        <div>
-          <strong>NIT:</strong> {nit}
-        </div>
-        <div>
-          <strong>Tipo de Cuenta:</strong> {tipo_cuenta}
-        </div>
-        <div>
-          <strong>Nombre del Banco</strong> {nombre_banco}
-        </div>
-      </div> */}
     </div>
   );
 };

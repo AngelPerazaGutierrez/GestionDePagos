@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 import "./App.css";
 import { Header } from "./components/header/Header";
-import { Footer } from "./components/header/Footer";
+// import { Footer } from "./components/header/Footer";
 import { HomePages } from "./pages/HomePages";
 import { LoginPage } from "./pages/LoginPage";
 import { ContextProvider } from "./userContext/ContextProvider";
@@ -36,8 +36,6 @@ function App() {
             {/* <Route path="/boot" element={<Bootcamp />} /> */}
             {/* <Route path="*" element={<ErrorPage />} /> */}
           </Routes>
-
-          <Footer />
         </ContextProvider>
       </Router>
     </>

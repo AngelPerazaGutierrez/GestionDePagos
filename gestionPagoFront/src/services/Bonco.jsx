@@ -33,10 +33,10 @@ export const obtenerBanco = async () => {
 };
 
 // Editar
-export const editarBanco = async (bancoNit, bancoId, banco) => {
+export const editarBanco = async (bancoId, banco) => {
   try {
     const response = await axios.put(
-      `${GetBackendURL}banco/editar-banco/${bancoId}/${bancoNit}`,
+      `${GetBackendURL}banco/editar-banco/${bancoId}`,
       banco
     );
     return response;

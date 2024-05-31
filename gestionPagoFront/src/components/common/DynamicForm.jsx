@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Swal from "sweetalert2";
 
 import {
   useForm,
@@ -51,12 +52,21 @@ export const DynamicForm = ({
       handleHideForm();
     }
   };
+  const onSubmita = (data) => {
+    onSubmit(data);
+    Swal.fire({
+      title: 'Datos enviados exitosamente',
+      text: 'Tu formulario ha sido enviado',
+      icon: 'success',
+      confirmButtonText: 'OK'
+    });
+  };
   return (
     <Container className="form-container">
       <p className="form-title">{formTitle}</p>
       <FormProvider {...methods}>
         {showForm ? (
-          <Form onSubmit={handleSubmit(onSubmit)}>
+          <Form onSubmit={handleSubmit(onSubmita)}>
             {fields.map((field, index) => (
               <div key={field.id}>
                 {fieldsConfig.map(
@@ -66,7 +76,23 @@ export const DynamicForm = ({
                       <Controller
                         name={`items.${index}.${name}`}
                         control={control}
-                        rules={validation}
+                        rules={
+                          name == "nit"
+                          ? {...validation,
+                          minLength: {
+                            value: 9,
+                            message: "El número debe tener al menos 9 dígitos",
+                          },
+                          maxLength: {
+                            value: 11,
+                            message: "El número no puede tener más de 11 dígitos",
+                          },
+                          pattern: {
+                            value: /^\d{9,11}$/,
+                            message: "El número debe tener entre 9 y 11 dígitos",
+                          },
+                        } : validation
+                      }
                         render={({ field }) => {
                           if (type === "select") {
                             return (
@@ -91,7 +117,7 @@ export const DynamicForm = ({
                               <FormControl
                                 as="textarea"
                                 // rows={3}
-                                {...field}
+                                {...field}                                
                                 isInvalid={!!errors.items?.[index]?.[name]}
                                 className="form-input"
                               />

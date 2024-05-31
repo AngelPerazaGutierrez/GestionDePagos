@@ -20,9 +20,10 @@ const fieldsConfigBanco = [
       { value: "Corriente", label: "Corriente" },
     ],
     validation: { required: "Tipo de cuenta es obligatorio" },
+    required: "La contraseña es obligatoria"                
   },
   {
-    name_banco: "hombre_banco",
+    name: "nombre_banco",
     label: "Nombre del Banco",
     type: "text",
     validation: { required: "Nombre del banco es obligatorio" },
@@ -33,7 +34,7 @@ export const FormCreateBanco = ({ bancoId, onSave }) => {
   // seccion de usercontext
   const { showForm, setShowForm } = useThemeContext();
   const defaultValues = {
-    items: [{ nit: "", tipo_cuenta: "Ahorro", nombre_banco: "" }],
+    items: [{ nit: "", tipo_cuenta: "Ahorros", nombre_banco: "" }],
   };
 
   const [formValues, setFormValues] = useState(defaultValues);
@@ -60,7 +61,7 @@ export const FormCreateBanco = ({ bancoId, onSave }) => {
       } else {
         await banco.crearBanco(data.items[0]);
       }
-      onSave();
+      // onSave();
     } catch (error) {
       console.error("Error al enviar el formulario:", error);
     }
