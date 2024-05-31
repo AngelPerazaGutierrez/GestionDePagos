@@ -33,7 +33,7 @@ export const FormCreateBanco = ({ bancoId, onSave }) => {
   // seccion de usercontext
   const { showForm, setShowForm } = useThemeContext();
   const defaultValues = {
-    items: [{ nit: "", tipo_cuenta: "Ahorros", nombre_banco: "" }],
+    items: [{ nit: "", tipo_cuenta: "Ahorro", nombre_banco: "" }],
   };
 
   const [formValues, setFormValues] = useState(defaultValues);

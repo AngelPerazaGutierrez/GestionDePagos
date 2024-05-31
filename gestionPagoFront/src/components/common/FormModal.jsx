@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import { FormCreateIngreso } from "../form/FormCreateIngreso";
@@ -6,17 +6,14 @@ import { FormCreateCiudad } from "../form/FormCreateCiudad ";
 import { FormCreateBanco } from "../form/FormCreateBanco";
 import { FormCreateEmpresa } from "../form/FormCreateEmpresa";
 import { FormCreateUsuario } from "../form/FormCreateUsuario";
-
-export const FormModal = ({ isOpen, onClose, formType, defaultValues, onSave, bancoId }) => {
-  useEffect(() => {
-      if (isOpen) {
-          console.log("Banco ID:", bancoId); // Verifica si el bancoId se recibe correctamente
-      }
-  }, [isOpen, bancoId]);
-
-  if (!isOpen) return null;  
-
-  
+export const FormModal = ({
+  isOpen,
+  onClose,
+  initialValues,
+  onSave,
+  formType,
+  bancoId,
+}) => {
   const renderForm = () => {
     switch (formType) {
       case "crearIngreso":

@@ -21,7 +21,8 @@ export const SignIn = () => {
     reset,
     handleSubmit,
     formState: { errors },
-  } = useForm();  
+  } = useForm();
+  alert(selectedValue);
   const onSubmit = async (data) => {
     console.log(data);
     navigate("/user");
