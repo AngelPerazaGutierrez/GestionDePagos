@@ -22,6 +22,7 @@ export const DynamicForm = ({
   defaultValues,
   buttonLabel,
   onSubmit,
+  bancoId,
 }) => {
   const methods = useForm({ defaultValues });
   const {

@@ -7,10 +7,10 @@ import Swal from "sweetalert2";
 import { eliminarBanco, editarBanco } from "../../../services/Bonco";
 
 export const Bancos = ({ informacionBanco, onClick, onEdit }) => {
-  const { nit, nombre_banco, tipo_cuenta } = informacionBanco;
+  const { id, nit, nombre_banco, tipo_cuenta } = informacionBanco;
 
   const defaultValues = {
-    items: [{ nit: "", tipo_cuenta: "Ahorro", nombre_banco: "" }],
+    items: [{ id: "", nit: "", tipo_cuenta: "Ahorro", nombre_banco: "" }],
   };
   // useContext
   const { formType, setFormType, isModalOpen, setIsModalOpen } =
@@ -21,6 +21,7 @@ export const Bancos = ({ informacionBanco, onClick, onEdit }) => {
     setFormType(type);
     setIsModalOpen(true);
     setSelectedBancoId(bancoId);
+    console.log(bancoId);
   };
 
   const handleCloseModal = () => {
@@ -33,7 +34,8 @@ export const Bancos = ({ informacionBanco, onClick, onEdit }) => {
     try {
       const response = await editarBanco(selectedBancoId);
       console.log("Banco editado:", response.data);
-      handleCloseModal();
+      console.log(data);
+      // handleCloseModal();
     } catch (error) {
       console.error("Error al editar el banco:", error);
     }
@@ -94,7 +96,7 @@ export const Bancos = ({ informacionBanco, onClick, onEdit }) => {
             formType={formType}
             defaultValues={defaultValues}
             onSave={handleSave}
-            onDelete={handleDelete}
+            // onDelete={handleDelete}
             bancoId={selectedBancoId}
           />
         </div>
@@ -113,6 +115,9 @@ export const Bancos = ({ informacionBanco, onClick, onEdit }) => {
         </div>
       )}
       {/* <div className="culumnadata items d-flex">
+        <div>
+          <strong>ID:</strong> {id}
+        </div>
         <div>
           <strong>NIT:</strong> {nit}
         </div>
