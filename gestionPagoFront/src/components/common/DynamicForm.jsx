@@ -1,4 +1,3 @@
-// import * as egreso from "../../services/areaPagos/getchCpsPendie";
 import React, { useState } from "react";
 
 import {
@@ -33,18 +32,24 @@ export const DynamicForm = ({
   } = methods;
 
   const { fields, append, remove } = useFieldArray({ control, name: "items" });
-  const { setDataForm, DataForm } = useThemeContext();
-  // const onSubmit = async (data) => {
-  //   setDataForm(data);
-  //   // console.log(data);
-  //   // const datos = await egreso.crearComprobante(data.items[0]);
-  //   // console.log(data, "hola");
-  // };
-
-  const [showForm, setShowForm] = useState(false);
-
+  const { showForm, setShowForm } = useThemeContext();
+  // funcion para mostrar y limpiar el formulario
   const handleShowForm = () => {
     setShowForm(!showForm);
+    append();
+    reset(defaultValues);
+  };
+  // funcion que se activa en la funcion de remover
+  const handleHideForm = () => {
+    setShowForm(false);
+    reset(defaultValues);
+  };
+  // funcion de eliminar formulario
+  const handleRemove = (index) => {
+    remove(index);
+    if (fields.length === 1) {
+      handleHideForm();
+    }
   };
   return (
     <Container className="form-container">
@@ -112,7 +117,7 @@ export const DynamicForm = ({
                 <Button
                   type="button"
                   variant="danger"
-                  onClick={() => remove(index)}
+                  onClick={() => handleRemove(index)}
                 >
                   Eliminar
                 </Button>

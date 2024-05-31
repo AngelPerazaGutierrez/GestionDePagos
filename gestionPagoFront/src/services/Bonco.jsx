@@ -1,7 +1,6 @@
 import axios from "axios";
 import { GetBackendURL } from "../config/GetBackendURL";
-// const GetBackendURL = "http://localhost:5000";
-// post
+
 export const crearBanco = async (datosFormBanco) => {
   console.log(datosFormBanco);
   try {

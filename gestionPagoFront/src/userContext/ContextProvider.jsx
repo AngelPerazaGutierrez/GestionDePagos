@@ -13,15 +13,15 @@ export const ContextProvider = ({ children }) => {
   // sesion fromulario
   const [formType, setFormType] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
-
+  // seccion  de dynamicfrm
+  const [showForm, setShowForm] = useState(false);
+  // stado para dashboardadmin
+  const [isVisible, setIsVisible] = useState(false);
   // funciones de navegacion protejidad
   const login = () => {
     setIsAuthenticated(true);
   };
 
-  const logout = () => {
-    setIsAuthenticated(false);
-  };
   const contextValue = {
     selectedOption,
     setSelectedOption,
@@ -39,6 +39,12 @@ export const ContextProvider = ({ children }) => {
     setIsModalOpen,
     formType,
     setFormType,
+    // seccion  de dynamicfrm
+    showForm,
+    setShowForm,
+    // seccion de dashboardadmin
+    isVisible,
+    setIsVisible,
   };
 
   return (

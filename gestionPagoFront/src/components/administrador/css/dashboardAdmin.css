@@ -14,3 +14,9 @@
   padding: 20px;
   font-family: Arial, sans-serif;
 }
+@media (max-width: 768px) {
+  /* Estilos para pantallas de hasta 768px de ancho */
+  .profile-container {
+    display: none !important;
+  }
+}

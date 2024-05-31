@@ -35,7 +35,8 @@ export const PerfilAdmin = () => {
       ) : (
         <Container>
           <Row>
-            <Col sm={2} className="d-flex   justify-content-center border p-2">
+            <Col sm={2} className="d-flex   justify-content-center "></Col>
+            <Col sm={2} className="d-flex   justify-content-center ">
               <PerfilHeader
                 imageSrc={foto}
                 // name="Julian"
@@ -43,9 +44,9 @@ export const PerfilAdmin = () => {
                 className="perfil-header"
               />
             </Col>
-            <Col sm={4} className="perfil-column ">
+            <Col sm={4} className="perfil-column p-4 py-5">
               <strong>Nombre:</strong> {profileData?.nombre}
-              <strong>apellido:</strong>
+              <strong>apellidos:</strong>
               {profileData?.apellido}
               <strong>Carrera profesional:</strong>
               {profileData?.profession}

@@ -6,22 +6,52 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { CustomButton } from "../../common/CustomButton";
 import { CompoBanco } from "../CompoBanco";
+import { useThemeContext } from "../../../userContext/ContextProvider";
+
 export const PerfilBanco = () => {
-  const [showBancos, setShowBancos] = useState(null);
-  const handleShowBancos = () => {
-    setShowBancos(!showBancos);
-    alert("jrrnfjer");
+  // const [showBancos, setShowBancos] = useState(null);
+  const { showForm, setShowForm } = useThemeContext();
+  const [showCreateBanco, setShowCreateBanco] = useState(true);
+  const [showBancos, setShowBancos] = useState(false);
+
+  const handleShowCreateBanco = () => {
+    setShowCreateBanco(true);
+    setShowBancos(false);
+    setShowForm(true);
   };
+
+  const handleShowBancos = () => {
+    setShowCreateBanco(false);
+    setShowBancos(true);
+  };
+
   return (
     <div>
       <Row>
-        <Col xs={12} md={6}>
-          <FormCreateBanco />
-        </Col>
-        <Col xs={!2} md={6}>
-          <p>Visualizar Bancos</p>
-          <CustomButton text="Visualizar bancos" onClick={handleShowBancos} />
+        <Row>
+          <Col xs={12} md={4} className=" "></Col>
+          <Col xs={12} md={3} className="">
+            <CustomButton
+              text="Visualizar formulario"
+              onClick={handleShowCreateBanco}
+            />
+          </Col>
+          <Col xs={12} md={3} className="">
+            <CustomButton text="Visualizar Bancos" onClick={handleShowBancos} />
+          </Col>
+        </Row>
+        <Col xs={12} md={2}></Col>
+        <Col xs={12} md={10}>
           {showBancos && <CompoBanco />}
+          <div className="containerForm ">
+            <div className="formulari">
+              {showCreateBanco && (
+                <div className="formulario shadow rounded">
+                  <FormCreateBanco />
+                </div>
+              )}
+            </div>
+          </div>
         </Col>
       </Row>
     </div>
