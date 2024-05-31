@@ -40,15 +40,6 @@ export const Bancos = ({ informacionBanco, onClick, onEdit }) => {
   };
 
   // delelete banco
-  // const handleDelete = async () => {
-  //   try {
-  //     const response = await eliminarBanco(selectedBancoId);
-  //     console.log("Banco eliminado:", response.data);
-  //     handleCloseModal();
-  //   } catch (error) {
-  //     console.error("Error al eliminar el banco:", error);
-  //   }
-  // };
 
   const handleDelete = async () => {
     const confirmacion = await Swal.fire({
@@ -87,7 +78,7 @@ export const Bancos = ({ informacionBanco, onClick, onEdit }) => {
   };
 
   return (
-    <div className="containerComprobante   shadow ">
+    <div className="containerComprobante shadow ">
       <div className="  d-flex justify-content-arouter stilosIcon">
         <h5>Bancos</h5>
         <div className="d-flex gap-4 mb-3 containerButo icons">
@@ -108,7 +99,7 @@ export const Bancos = ({ informacionBanco, onClick, onEdit }) => {
           />
         </div>
       </div>
-      {!isDeleting && ( // Renderiza el contenido de la tarjeta solo si no se está eliminando el banco
+      {!isDeleting && (
         <div className=" items mb-5 ">
           <div>
             <strong>NIT:</strong> {nit}

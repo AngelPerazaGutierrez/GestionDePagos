@@ -17,44 +17,6 @@ export const CompoBanco = () => {
 
     getData();
   }, []);
-  // const informacionBancos = [
-  //   {
-  //     id: 1,
-  //     fecha: "2024-05-22",
-  //     ciudad: "Medellin",
-  //     nit: "123456789",
-  //     pais: "colombia",
-  //     concepto: "Concepto A",
-  //     banco: "Banco A",
-  //     tipo_cuenta: "Cuenta corriente",
-  //     numero_cuenta: "123456789",
-  //     valor: 100,
-  //   },
-  //   {
-  //     id: 1,
-  //     fecha: "2024-05-22",
-  //     ciudad: "Bogota",
-  //     nit: "123456789",
-  //     pais: "Colombia",
-  //     concepto: "Concepto A",
-  //     banco: "Banco A",
-  //     tipo_cuenta: "Cuenta corriente",
-  //     numero_cuenta: "123456789",
-  //     valor: 100,
-  //   },
-  //   {
-  //     id: 1,
-  //     fecha: "2024-05-22",
-  //     ciudad: "Ciudad A",
-  //     nit: "123456789",
-  //     pais: "Colombia",
-  //     concepto: "Concepto A",
-  //     ciudad: "Banco A",
-  //     tipo_cuenta: "Cuenta corriente",
-  //     numero_cuenta: "123456789",
-  //     valor: 100,
-  //   },
-  // ];
 
   return (
     <div className="containerCard py-5  rounded container  gap-2 w-full hidden lg:flex  justify-center items-center mb-5">
