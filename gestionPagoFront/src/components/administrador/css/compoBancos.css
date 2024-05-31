@@ -1,0 +1,32 @@
+.text-secondary {
+  color: grey;
+}
+
+.icons {
+  color: grey;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.icons:hover {
+  color: #56a0c2;
+}
+
+/* estilos de formulario del banco */
+.containerForm {
+  max-width: 100%;
+  height: 500px;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.formulari {
+  width: 50%;
+}
+.formulario {
+  width: 100%;
+  padding: 20px;
+  margin-top: 10px;
+  background-color: #f3f3f3;
+}

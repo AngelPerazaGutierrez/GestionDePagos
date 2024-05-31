@@ -5,12 +5,15 @@ import { BsHeadset } from "react-icons/bs";
 import img1 from "../../assets/img/perfil.jpeg";
 import { AuthButton } from "./AuthButton";
 import { useThemeContext } from "../../userContext/ContextProvider";
+import { useState } from "react";
 
 export const Header = () => {
-  const { isAuthenticated, logout } = useThemeContext();
-  const handleLogin = () => {
-    login();
-    alert("El usuario");
+  const { isVisible, setIsVisible } = useThemeContext();
+
+  const handleButton = () => {
+    setIsVisible(!isVisible);
+    // alert(isVisible);
+    // alert("El usuario");
   };
   return (
     <>
@@ -27,7 +30,7 @@ export const Header = () => {
           <Navbar.Brand href="#">
             <NavLink to="/home" className="nombre fs-2 px-5 fw-bold"></NavLink>
           </Navbar.Brand>
-          <Navbar.Toggle aria-controls="navbarScroll" />
+          <Navbar.Toggle aria-controls="navbarScroll" onClick={handleButton} />
           <Navbar.Collapse id="navbarScroll">
             <Nav
               className="me-auto my-2 my-lg-0 d-flex gap-3  container"

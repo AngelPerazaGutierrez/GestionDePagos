@@ -26,7 +26,11 @@ export const FormModal = ({
         );
       case "crearBancos":
         return (
-          <FormCreateBanco initialValues={initialValues} onSave={onSave} />
+          <FormCreateBanco
+            initialValues={initialValues}
+            onSave={onSave}
+            bancoId={bancoId}
+          />
         );
       case "crearEmpresa":
         return (

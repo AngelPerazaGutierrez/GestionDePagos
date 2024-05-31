@@ -66,7 +66,7 @@ export const Empleados = ({ informacionEmpleo, onClick }) => {
           width={60}
           height={60}
         />
-        <div className="d-flex gap-4 my-4 containerButo">
+        <div className="d-flex gap-4 my-4 containerButo icons">
           <BsTrashFill className="fs-5 text-secondary" onClick={handleDelete} />
           <BsPencilFill
             className="fs-5 text-secondary"

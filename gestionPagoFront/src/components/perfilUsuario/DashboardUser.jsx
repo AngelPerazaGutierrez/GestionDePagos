@@ -1,4 +1,5 @@
 import "./css/dashboar.css";
+import { Container, Row, Col } from "react-bootstrap";
 
 import { BsEyeFill, BsPersonFill, BsJustify } from "react-icons/bs";
 import { CustomButton } from "../common/CustomButton";
@@ -32,29 +33,39 @@ export const DashboardUser = () => {
   ];
 
   return (
-    <div className="profile-container shadow">
-      <div className="profile-header my-3">
-        <img
-          src="https://placehold.co/200x200"
-          alt="Profile picture"
-          className="profile-picture"
-        />
-        <h2>Julian</h2>
-        <p className="profile-email text-white">Profesión</p>
+    <Container>
+      <div className="profile-container shadow">
+        <Row>
+          <Col xs={12} md={12}>
+            <div className=" my-3 d-flex flex-column  align-items-center ">
+              <img
+                src="https://placehold.co/200x200"
+                alt="Profile picture"
+                className="profile-picture  "
+              />
+              <div className="namePerfil">
+                <h2>Julian</h2>
+                <p className=" text-white">Profesión</p>
+              </div>
+            </div>
+          </Col>
+          <Col xs={12} md={12}>
+            <nav>
+              {pages.map((page) => (
+                <div className="mb-4" key={page.id}>
+                  <CustomButton
+                    text={page.name}
+                    className=""
+                    icon={page.icon}
+                    setSelected={setSelectedPage}
+                    onClick={() => handledPagesSelect(page)}
+                  />
+                </div>
+              ))}
+            </nav>
+          </Col>
+        </Row>
       </div>
-      <nav>
-        {pages.map((page) => (
-          <div className=" mb-4" key={page.id}>
-            <CustomButton
-              text={page.name}
-              className=""
-              icon={page.icon}
-              setSelected={setSelectedPage}
-              onClick={() => handledPagesSelect(page)}
-            />
-          </div>
-        ))}
-      </nav>
-    </div>
+    </Container>
   );
 };

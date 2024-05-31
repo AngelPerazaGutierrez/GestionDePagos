@@ -12,44 +12,44 @@ import { Empresa } from "./common/Empresa";
 
 export const CompoEmpresa = () => {
   const [error, setError] = useState(null);
-  const informacionEmpresas = [
-    {
-      id: 1,
-      nit: "123456789",
-      nombre_empresa: "Freskaleche",
-      tipo_cuenta1: "Ciudad A",
-      nombre_banco1: "Tercero A",
-      numero_cuenta1: "Concepto A",
-      ciudad: "Cúcuta",
-    },
-    {
-      id: 1,
-      nit: "123456789",
-      nombre_empresa: "Freskaleche",
-      tipo_cuenta1: "Ciudad A",
-      nombre_banco1: "Tercero A",
-      numero_cuenta1: "Concepto A",
-      ciudad: "Cúcuta",
-    },
-    {
-      id: 1,
-      nit: "123456789",
-      nombre_empresa: "Freskaleche",
-      tipo_cuenta1: "Ciudad A",
-      nombre_banco1: "Tercero A",
-      numero_cuenta1: "Concepto A",
-      ciudad: "Cúcuta",
-    },
-  ];
-  // const [informacionEmpresas, setInformacionEmpresas] = useState([]);
-  // useEffect(() => {
-  //   const getData = async () => {
-  //     const data = await consultarEmpresa();
-  //     setInformacionEmpresas(data);
-  //   };
+  // const informacionEmpresas = [
+  //   {
+  //     id: 1,
+  //     nit: "123456789",
+  //     nombre_empresa: "Freskaleche",
+  //     tipo_cuenta1: "Ciudad A",
+  //     nombre_banco1: "Tercero A",
+  //     numero_cuenta1: "Concepto A",
+  //     ciudad: "Cúcuta",
+  //   },
+  //   {
+  //     id: 1,
+  //     nit: "123456789",
+  //     nombre_empresa: "Freskaleche",
+  //     tipo_cuenta1: "Ciudad A",
+  //     nombre_banco1: "Tercero A",
+  //     numero_cuenta1: "Concepto A",
+  //     ciudad: "Cúcuta",
+  //   },
+  //   {
+  //     id: 1,
+  //     nit: "123456789",
+  //     nombre_empresa: "Freskaleche",
+  //     tipo_cuenta1: "Ciudad A",
+  //     nombre_banco1: "Tercero A",
+  //     numero_cuenta1: "Concepto A",
+  //     ciudad: "Cúcuta",
+  //   },
+  // ];
+  const [informacionEmpresas, setInformacionEmpresas] = useState([]);
+  useEffect(() => {
+    const getData = async () => {
+      const data = await consultarEmpresa();
+      setInformacionEmpresas(data);
+    };
 
-  //   getData();
-  // }, []);
+    getData();
+  }, []);
 
   //   const handleDelete = async (comprobanteId) => {
   //     const confirmacion = await Swal.fire({

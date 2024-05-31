@@ -4,10 +4,10 @@
   justify-content: space-between; /* Distribute columns evenly */
   align-items: flex-start; /* Align column contents at the top */
   background-color: #f3f3f3;
-  position: fixe; /* Change to fixed to stick at the bottom */
+  position: relative; /* Change to fixed to stick at the bottom */
   bottom: 0; /* Stick to the bottom of the viewport */
   width: 100%; /* Ensure it spans the full width of the viewport */
-  z-index: 1000; /* Ensure it is above other content if necessary */
+  z-index: 1;
 }
 
 .footer-column {

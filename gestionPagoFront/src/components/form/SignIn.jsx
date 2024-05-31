@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { CustomButton } from "../common/CustomButton";
-
+import { registroUsuario } from "../../services/RegistroUsuario";
 import { useState } from "react";
 
 import { useThemeContext } from "../../userContext/ContextProvider.jsx";
@@ -9,7 +9,7 @@ import { useThemeContext } from "../../userContext/ContextProvider.jsx";
 export const SignIn = () => {
   const navigate = useNavigate();
   const { selectedOption, setSelectedOption, login } = useThemeContext();
-  // const [selectedOption, setSelectedOption] = useState("");
+
   const options = [
     { value: "", label: "Seleccione usuario" },
     { value: "Usuarios", label: "Usuarios" },
@@ -21,18 +21,15 @@ export const SignIn = () => {
     reset,
     handleSubmit,
     formState: { errors },
-  } = useForm();
-
+  } = useForm();  
   const onSubmit = async (data) => {
     console.log(data);
-    login();
-    reset();
-    // navigation("/login");
-    navigate("/login");
+    navigate("/user");
   };
   const handleChange = (event) => {
     const selectedValue = event.target.value;
     setSelectedOption(selectedValue);
+    console.log(selectedValue);
   };
   return (
     <div className="shadow formCss">
@@ -103,7 +100,7 @@ export const SignIn = () => {
           </>
 
           <div className="d-flex justify-content-center mb-3">
-            <CustomButton text="Iniciar sesión" className="" />
+            <CustomButton text="Iniciar sesión" className="text-center" />
           </div>
         </form>
       </div>

@@ -1,0 +1,25 @@
+/* Estilos generales para el contenedor principal del perfil */
+.perfilcontainer {
+  background-color: #d7dbdf; /* Color de fondo claro */
+  left: 0px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  /* max-width: 1600px; */
+  width: 100%;
+  position: absolute;
+  top: 70px;
+  z-index: -1;
+
+  background-color: #f7fcfc;
+}
+.perfil-column {
+  display: flex;
+
+  flex-direction: column;
+  /* padding: 40px; */
+}
+.perfil-columntittle {
+  display: flex;
+  align-items: start;
+  justify-content: flex-end;
+}

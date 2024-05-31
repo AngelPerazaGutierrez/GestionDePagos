@@ -16,7 +16,7 @@ export const registroUsuario = async (datoFormUser) => {
 export const consultarUsuario = async () => {
   console.log(GetBackendURL, "comprobante");
   try {
-    const response = await axios.get(`${GetBackendURL}usuario/listar-usuario`); // Cambia esta URL por tu endpoint real
+    const response = await axios.get(`${GetBackendURL}usuario/listar-usuario`);
     return response.data;
   } catch (error) {
     console.error("Error fetching data: ", error);

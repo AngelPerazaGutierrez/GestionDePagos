@@ -1,5 +1,5 @@
-// import * as egreso from "../../services/areaPagos/getchCpsPendie";
 import React, { useState } from "react";
+import Swal from "sweetalert2";
 
 import {
   useForm,
@@ -33,25 +33,40 @@ export const DynamicForm = ({
   } = methods;
 
   const { fields, append, remove } = useFieldArray({ control, name: "items" });
-  const { setDataForm, DataForm } = useThemeContext();
-  // const onSubmit = async (data) => {
-  //   setDataForm(data);
-  //   // console.log(data);
-  //   // const datos = await egreso.crearComprobante(data.items[0]);
-  //   // console.log(data, "hola");
-  // };
-
-  const [showForm, setShowForm] = useState(false);
-
+  const { showForm, setShowForm } = useThemeContext();
+  // funcion para mostrar y limpiar el formulario
   const handleShowForm = () => {
     setShowForm(!showForm);
+    append();
+    reset(defaultValues);
+  };
+  // funcion que se activa en la funcion de remover
+  const handleHideForm = () => {
+    setShowForm(false);
+    reset(defaultValues);
+  };
+  // funcion de eliminar formulario
+  const handleRemove = (index) => {
+    remove(index);
+    if (fields.length === 1) {
+      handleHideForm();
+    }
+  };
+  const onSubmita = (data) => {
+    onSubmit(data);
+    Swal.fire({
+      title: 'Datos enviados exitosamente',
+      text: 'Tu formulario ha sido enviado',
+      icon: 'success',
+      confirmButtonText: 'OK'
+    });
   };
   return (
     <Container className="form-container">
       <p className="form-title">{formTitle}</p>
       <FormProvider {...methods}>
         {showForm ? (
-          <Form onSubmit={handleSubmit(onSubmit)}>
+          <Form onSubmit={handleSubmit(onSubmita)}>
             {fields.map((field, index) => (
               <div key={field.id}>
                 {fieldsConfig.map(
@@ -61,7 +76,23 @@ export const DynamicForm = ({
                       <Controller
                         name={`items.${index}.${name}`}
                         control={control}
-                        rules={validation}
+                        rules={
+                          name == "nit"
+                          ? {...validation,
+                          minLength: {
+                            value: 9,
+                            message: "El número debe tener al menos 9 dígitos",
+                          },
+                          maxLength: {
+                            value: 11,
+                            message: "El número no puede tener más de 11 dígitos",
+                          },
+                          pattern: {
+                            value: /^\d{9,11}$/,
+                            message: "El número debe tener entre 9 y 11 dígitos",
+                          },
+                        } : validation
+                      }
                         render={({ field }) => {
                           if (type === "select") {
                             return (
@@ -86,7 +117,7 @@ export const DynamicForm = ({
                               <FormControl
                                 as="textarea"
                                 // rows={3}
-                                {...field}
+                                {...field}                                
                                 isInvalid={!!errors.items?.[index]?.[name]}
                                 className="form-input"
                               />
@@ -112,7 +143,7 @@ export const DynamicForm = ({
                 <Button
                   type="button"
                   variant="danger"
-                  onClick={() => remove(index)}
+                  onClick={() => handleRemove(index)}
                 >
                   Eliminar
                 </Button>
