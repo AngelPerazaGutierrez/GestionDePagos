@@ -79,7 +79,7 @@ export const Empleados = ({ informacionEmpleo, onClick }) => {
             onSave={handleSave}
             onClose={handleCloseModal}
             onDelete={handleDelete}
-            bancoId={selectedBancoId}
+            // bancoId={selectedBancoId}
           />
         </div>
       </div>

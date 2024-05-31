@@ -2,7 +2,6 @@ import React from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import { FormCreateIngreso } from "../form/FormCreateIngreso";
-import { FormCreateCiudad } from "../form/FormCreateCiudad ";
 import { FormCreateBanco } from "../form/FormCreateBanco";
 import { FormCreateEmpresa } from "../form/FormCreateEmpresa";
 import { FormCreateUsuario } from "../form/FormCreateUsuario";
@@ -19,11 +18,7 @@ export const FormModal = ({
       case "crearIngreso":
         return (
           <FormCreateIngreso initialValues={initialValues} onSave={onSave} />
-        );
-      case "crearCiudad":
-        return (
-          <FormCreateCiudad initialValues={initialValues} onSave={onSave} />
-        );
+        );      
       case "crearBancos":
         return (
           <FormCreateBanco

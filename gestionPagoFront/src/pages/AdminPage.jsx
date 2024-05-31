@@ -2,11 +2,9 @@ import React, { useState, useEffect } from "react";
 import { Container, Row, Col, Card, Form, Button } from "react-bootstrap";
 import { FormCreateBanco } from "../components/form/FormCreateBanco";
 import { FormCreateUsuario } from "../components/form/FormCreateUsuario";
-import { FormCreateCiudad } from "../components/form/FormCreateCiudad ";
 import { FormCreateEmpresa } from "../components/form/FormCreateEmpresa";
 import { ComprobanteCard } from "../components/perfilUsuario/ComprobanteCard";
 import { Comprobante } from "../components/perfilUsuario/Comprobante";
-import { CompoCiudades } from "../components/administrador/CompoCiudades";
 import { CompoBanco } from "../components/administrador/CompoBanco";
 import { CompoEmpleados } from "../components/administrador/CompoEmpleados";
 import { CompoEmpresa } from "../components/administrador/CompoEmpresa";
@@ -19,28 +17,15 @@ export const AdminPage = () => {
   const { isVisible, selectedPage } = useThemeContext();
   const [isSmallScreen, setIsSmallScreen] = useState(false);
 
-  // useEffect(() => {
-  //   const handleResize = () => {
-  //     setIsSmallScreen(window.innerWidth <= 768);
-  //   };
-
-  //   window.addEventListener("resize", handleResize);
-
-  //   return () => {
-  //     window.removeEventListener("resize", handleResize);
-  //   };
-  // }, []);
   const renderSelectedPage = () => {
     switch (selectedPage) {
-      case "Perfil usuario":
+      case "Mi perfil":
         return <PerfilAdmin />;
-      case "Visualizar los bancos":
-        return <PerfilBanco />;
-      case "Visualizar las ciudades":
-        return <CompoCiudades />;
-      case "Visualizar  empleados":
+      case "Bancos":
+        return <PerfilBanco />;      
+      case "Usuarios":
         return <CompoEmpleados />;
-      case "Visualizar  empresas":
+      case "Empresas":
         return <CompoEmpresa />;
       default:
         return <PerfilAdmin />;
@@ -55,7 +40,7 @@ export const AdminPage = () => {
       <Row className="d-flex justify-content-center align-items-center">
         <Col md={12} className="d-flex  ">
           <DashboardAdmini />
-          {isVisible && !isSmallScreen && <DashboardAdmini />}
+          {isVisible && !isSmallScreen && <DashboardAdmini />}                            
           {/* {isVisible &&()} */}
           {/* <FormCreateBanco />
           <FormCreateUsuario />

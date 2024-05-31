@@ -54,11 +54,7 @@ export const PerfilAdmin = () => {
               {profileData?.email}
               <strong>proceso</strong>
               {profileData?.proceso}
-            </Col>
-            <Col sm={4} className="perfil-columntittle mt-5">
-              <BsHeadset className="fs-1 fw-bold" />
-              <h3 className="fw-bold">Soporte</h3>
-            </Col>
+            </Col>            
           </Row>
         </Container>
       )}

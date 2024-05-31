@@ -14,10 +14,10 @@ export const crearEmpresa = async (datosFormEmpresa) => {
   }
 };
 
-export const consultarEmpresa = async () => {
+export const obtenerEmpresa = async () => {
   console.log(GetBackendURL, "comprobante");
   try {
-    const response = await axios.get(`${GetBackendURL}empresa/listar-empresa`); // Cambia esta URL por tu endpoint real
+    const response = await axios.get(`${GetBackendURL}empresa/listar-empresa`);
     return response.data;
   } catch (error) {
     console.error("Error fetching data: ", error);

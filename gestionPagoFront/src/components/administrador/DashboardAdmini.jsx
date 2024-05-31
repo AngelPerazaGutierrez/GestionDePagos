@@ -48,28 +48,28 @@ export const DashboardAdmini = () => {
   const pages = [
     {
       id: 1,
-      name: "Perfil usuario",
+      name: "Mi perfil",
       icon: <BsPersonFill className="fs-6 m-2 " />,
     },
 
     {
-      id: 3,
-      name: "Visualizar los bancos",
+      id: 2,
+      name: "Bancos",
       icon: <BsBank2 className="fs-6 m-2" />,
-    },
+    },    
     {
       id: 3,
-      name: "Visualizar las ciudades",
-      icon: <BsHospital className="fs-6 m-2" />,
-    },
-    {
-      id: 3,
-      name: "Visualizar  empleados",
+      name: "Usuarios",
       icon: <BsPeople className="fs-7 m-2" />,
     },
     {
-      id: 3,
-      name: "Visualizar  empresas",
+      id: 4,
+      name: "Empresas",
+      icon: <BsEyeFill className="fs-5 m-2" />,
+    },
+    {
+      id: 5,
+      name: "Comprobantes de pago",
       icon: <BsEyeFill className="fs-5 m-2" />,
     },
   ];
@@ -95,7 +95,7 @@ export const DashboardAdmini = () => {
       <Navegacion
         pages={pages}
         onSelectPage={handledPagesSelect}
-        className="item "
+        className="item"
       />
     </div>
   );
