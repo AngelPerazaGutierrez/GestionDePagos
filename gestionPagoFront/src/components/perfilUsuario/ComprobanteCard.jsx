@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Comprobante } from "./Comprobante"; // Asegúrate de que la ruta sea correcta
+import { Comprobante } from "./Comprobante"; 
 import "../../assets/css/perfilUsuario/comprobanteCard.css";
 import Swal from "sweetalert2";
 import Container from "react-bootstrap/Container";
@@ -13,44 +13,7 @@ import { Loading } from "../common/Loading";
 
 export const ComprobanteCard = () => {
   const [error, setError] = useState(null);
-  // const informacionCard = [
-  //   {
-  //     id: 1,
-  //     fecha: "2024-05-22",
-  //     ciudad: "Ciudad A",
-  //     nit: "123456789",
-  //     tercero: "Tercero A",
-  //     concepto: "Concepto A",
-  //     banco: "Banco A",
-  //     tipo_cuenta: "Cuenta corriente",
-  //     numero_cuenta: "123456789",
-  //     valor: 100,
-  //   },
-  //   {
-  //     id: 1,
-  //     fecha: "2024-05-22",
-  //     ciudad: "Ciudad A",
-  //     nit: "123456789",
-  //     tercero: "Tercero A",
-  //     concepto: "Concepto A",
-  //     banco: "Banco A",
-  //     tipo_cuenta: "Cuenta corriente",
-  //     numero_cuenta: "123456789",
-  //     valor: 100,
-  //   },
-  //   {
-  //     id: 1,
-  //     fecha: "2024-05-22",
-  //     ciudad: "Ciudad A",
-  //     nit: "123456789",
-  //     tercero: "Tercero A",
-  //     concepto: "Concepto A",
-  //     banco: "Banco A",
-  //     tipo_cuenta: "Cuenta corriente",
-  //     numero_cuenta: "123456789",
-  //     valor: 100,
-  //   },
-  // ];
+
   const [informacionCard, setInformacionCard] = useState([]);
   useEffect(() => {
     const getData = async () => {

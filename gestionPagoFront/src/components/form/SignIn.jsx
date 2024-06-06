@@ -12,9 +12,8 @@ export const SignIn = () => {
 
   const options = [
     { value: "", label: "Seleccione usuario" },
-    { value: "Usuarios", label: "Usuarios" },
-    { value: "Administrador", label: "Administrador" },
-    { value: "contador", label: "Contador" },
+    { value: "Usuario", label: "Usuario" },
+    { value: "Administrador", label: "Administrador" }
   ];
   const {
     register,
@@ -24,7 +23,13 @@ export const SignIn = () => {
   } = useForm();  
   const onSubmit = async (data) => {
     console.log(data);
-    navigate("/user");
+    if (selectedValue === "Administrador") {
+      navigate("/admin");
+    } else if (selectedValue === "Usuario") {
+      navigate("/user");
+    } else {
+      console.error("Tipo de usuario no válido");
+    }
   };
   const handleChange = (event) => {
     const selectedValue = event.target.value;
@@ -35,7 +40,7 @@ export const SignIn = () => {
     <div className="shadow formCss">
       <div className="d-block bg-white p-4 ">
         <div className=" d-flex gap-2 justify-content-around borde mb-5 text-center">
-          <p className="fw-bold fs-2">Financial</p>
+          <p className="fw-bold fs-2">Inicio de sesión</p>
         </div>
         <form onSubmit={handleSubmit(onSubmit)} className="w-100">
           <>
