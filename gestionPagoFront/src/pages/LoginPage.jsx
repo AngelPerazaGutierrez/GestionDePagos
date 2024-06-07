@@ -8,7 +8,7 @@ import "../assets/css/profileUSer/pagesProfile.css";
 import img from "../assets/img/perfil.jpeg";
 import { useThemeContext } from "../userContext/ContextProvider";
 // import { FormComparateIngres } from "../components/form/FormComparateIngres";
-import { FormCreateIngreso } from "../components/form/FormCreateIngreso";
+import { FormCreateEgreso } from "../components/form/FormCreateEgreso";
 export const LoginPage = () => {
   const { isAuthenticated, logout } = useThemeContext();
 
@@ -17,10 +17,9 @@ export const LoginPage = () => {
       {/* <Container> */}
       <Row>
         <Col sm={4}>{/* <Dashboard /> */}</Col>
-        <Col sm={4} className="">
-          {/* <FormComparateIngres /> */}
+        <Col sm={4} className="">          
           <div className="form mt-5 ">
-            <FormCreateIngreso />
+            <FormCreateEgreso />
           </div>
         </Col>
       </Row>

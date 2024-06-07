@@ -101,12 +101,12 @@ const defaultValuesEgreso = {
       tipo_cuenta: "Ahorros",
       numero_cuenta: "",
       valor: "",
-      adjuntos: null,
+      adjuntos: "",
     },
   ],
 };
 
-export const FormCreateIngreso = ({
+export const FormCreateEgreso = ({
   initialValues = defaultValuesEgreso,
   onSave,
 }) => {
@@ -132,7 +132,7 @@ export const FormCreateIngreso = ({
     <div className="w-4">
       <DynamicForm
         fieldsConfig={fieldsConfigEgreso}
-        formTitle="Crear ingreso"
+        formTitle=""
         buttonLabel={
           initialValues.items[0].id ? "Editar ingreso" : "Crear ingreso"
         }

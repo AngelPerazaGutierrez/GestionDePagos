@@ -2,7 +2,7 @@ import React from "react";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { useThemeContext } from "../userContext/ContextProvider";
-import { FormCreateIngreso } from "../components/form/FormCreateIngreso";
+import { FormCreateEgreso } from "../components/form/FormCreateEgreso";
 import { ComprobanteCard } from "../components/perfilUsuario/ComprobanteCard";
 import { DashboardUser } from "../components/perfilUsuario/DashboardUser";
 
@@ -22,7 +22,7 @@ export const UsuarioPages = () => {
           {selectedPage === "Perfil" && <PerfilUser />}
           <div style={{ width: "50%" }}>
             {selectedPage === "Crear comprobante de pago" && (
-              <FormCreateIngreso />
+              <FormCreateEgreso />
             )}
           </div>
           {selectedPage === "Visualizar comprobantes de pago" && (

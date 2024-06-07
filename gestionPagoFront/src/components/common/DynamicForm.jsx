@@ -34,17 +34,20 @@ export const DynamicForm = ({
 
   const { fields, append, remove } = useFieldArray({ control, name: "items" });
   const { showForm, setShowForm } = useThemeContext();
+
   // funcion para mostrar y limpiar el formulario
   const handleShowForm = () => {
     setShowForm(!showForm);
     append();
     reset(defaultValues);
   };
+
   // funcion que se activa en la funcion de remover
   const handleHideForm = () => {
     setShowForm(false);
     reset(defaultValues);
   };
+
   // funcion de eliminar formulario
   const handleRemove = (index) => {
     remove(index);
@@ -56,9 +59,11 @@ export const DynamicForm = ({
     onSubmit(data);
     Swal.fire({
       title: 'Datos enviados exitosamente',
-      text: 'Tu formulario ha sido enviado',
+      text: `Tu formulario ha sido enviado`,
       icon: 'success',
       confirmButtonText: 'OK'
+    }).then(() => { // Refresca el formulario después de cerrar la alerta
+      reset(defaultValues)
     });
   };
   return (
@@ -115,8 +120,7 @@ export const DynamicForm = ({
                           } else if (type === "textarea") {
                             return (
                               <FormControl
-                                as="textarea"
-                                // rows={3}
+                                as="textarea"                                
                                 {...field}                                
                                 isInvalid={!!errors.items?.[index]?.[name]}
                                 className="form-input"
