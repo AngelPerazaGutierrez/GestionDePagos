@@ -1,7 +1,6 @@
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import { BsHeadset } from "react-icons/bs";
 import { PerfilHeader } from "../common/perfil/PerfilHeader";
 import "./css/perfiAdmin.css";
 import foto from "../../assets/img/perfil.jpeg";
@@ -18,7 +17,8 @@ export const PerfilAdmin = () => {
     const fetchProfileData = async () => {
       try {
         const response = await consultarUsuario();
-        setProfileData(response.data);
+        setProfileData(response[0]); // hacer una mejora para que salga por id, compare y traiga los datos por ahora esta setiado al primer registro
+        console.log(response)
       } catch (err) {
         setError(err);
       } finally {
@@ -28,33 +28,31 @@ export const PerfilAdmin = () => {
 
     fetchProfileData();
   }, []);
+
   return (
     <div className="perfilcontainer">
-      {error ? (
+      {loading ? (
         <Loading />
+      ) : error ? (
+        <div>Error al cargar los datos del perfil</div>
       ) : (
         <Container>
           <Row>
-            <Col sm={2} className="d-flex   justify-content-center "></Col>
-            <Col sm={2} className="d-flex   justify-content-center ">
+            <Col sm={2} className="d-flex justify-content-center"></Col>
+            <Col sm={2} className="d-flex justify-content-center">
               <PerfilHeader
                 imageSrc={foto}
-                // name="Julian"
+                name= {profileData?.nombre}
                 profession="Profesión"
                 className="perfil-header"
               />
             </Col>
             <Col sm={4} className="perfil-column p-4 py-5">
-              <strong>Nombre:</strong> {profileData?.nombre}
-              <strong>apellidos:</strong>
-              {profileData?.apellido}
-              <strong>Carrera profesional:</strong>
-              {profileData?.profession}
-              <strong>Email</strong>
-              {profileData?.email}
-              <strong>proceso</strong>
-              {profileData?.proceso}
-            </Col>            
+              <p><strong>Nombre:</strong> {profileData?.nombre}</p>
+              <p><strong>Apellidos:</strong> {profileData?.apellido}</p>              
+              <p><strong>Email:</strong> {profileData?.email}</p>
+              <p><strong>Proceso:</strong> {profileData?.proceso}</p>
+            </Col>
           </Row>
         </Container>
       )}

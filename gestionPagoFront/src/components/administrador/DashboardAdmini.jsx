@@ -16,6 +16,8 @@ import { PerfilHeader } from "../common/perfil/PerfilHeader";
 import { useState, useEffect } from "react";
 import { Loading } from "../common/Loading";
 import { consultarUsuario } from "../../services/RegistroUsuario";
+
+
 export const DashboardAdmini = () => {
   const { selectedPage, setSelectedPage, setshowPagesProfile } =
     useThemeContext();
