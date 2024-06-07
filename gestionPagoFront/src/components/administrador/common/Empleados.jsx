@@ -1,5 +1,4 @@
 import { useState } from "react";
-import "../css/compoCiudades.css";
 import { CustomButton } from "../../common/CustomButton";
 import { useThemeContext } from "../../../userContext/ContextProvider";
 import { FormModal } from "../../common/FormModal";
@@ -79,7 +78,7 @@ export const Empleados = ({ informacionEmpleo, onClick }) => {
             onSave={handleSave}
             onClose={handleCloseModal}
             onDelete={handleDelete}
-            bancoId={selectedBancoId}
+            // bancoId={selectedBancoId}
           />
         </div>
       </div>

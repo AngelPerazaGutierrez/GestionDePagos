@@ -1,8 +1,7 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
-import { FormCreateIngreso } from "../form/FormCreateIngreso";
-import { FormCreateCiudad } from "../form/FormCreateCiudad ";
+import { FormCreateEgreso } from "../form/FormCreateEgreso";
 import { FormCreateBanco } from "../form/FormCreateBanco";
 import { FormCreateEmpresa } from "../form/FormCreateEmpresa";
 import { FormCreateUsuario } from "../form/FormCreateUsuario";
@@ -16,14 +15,10 @@ export const FormModal = ({
 }) => {
   const renderForm = () => {
     switch (formType) {
-      case "crearIngreso":
+      case "crearEgreso":
         return (
-          <FormCreateIngreso initialValues={initialValues} onSave={onSave} />
-        );
-      case "crearCiudad":
-        return (
-          <FormCreateCiudad initialValues={initialValues} onSave={onSave} />
-        );
+          <FormCreateEgreso initialValues={initialValues} onSave={onSave} />
+        );      
       case "crearBancos":
         return (
           <FormCreateBanco

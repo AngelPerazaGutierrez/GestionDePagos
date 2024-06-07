@@ -1,9 +1,6 @@
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { CustomButton } from "../common/CustomButton";
-import { registroUsuario } from "../../services/RegistroUsuario";
-import { useState } from "react";
-
 import { useThemeContext } from "../../userContext/ContextProvider.jsx";
 
 export const SignIn = () => {
@@ -12,20 +9,21 @@ export const SignIn = () => {
 
   const options = [
     { value: "", label: "Seleccione usuario" },
-    { value: "Usuarios", label: "Usuarios" },
-    { value: "Administrador", label: "Administrador" },
-    { value: "contador", label: "Contador" },
+    { value: "Usuario", label: "Usuario" },
+    { value: "Administrador", label: "Administrador" }
   ];
-  const {
-    register,
-    reset,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();  
-  const onSubmit = async (data) => {
-    console.log(data);
-    navigate("/user");
+  const { register, handleSubmit, formState: { errors }} = useForm();  
+
+  const onSubmit = async (data) => {    
+    if (selectedOption === "Administrador") {
+      navigate("/admin");
+    } else if (selectedOption === "Usuario") {
+      navigate("/user");
+    } else {
+      console.error("Tipo de usuario no válido");
+    }
   };
+
   const handleChange = (event) => {
     const selectedValue = event.target.value;
     setSelectedOption(selectedValue);
@@ -35,23 +33,20 @@ export const SignIn = () => {
     <div className="shadow formCss">
       <div className="d-block bg-white p-4 ">
         <div className=" d-flex gap-2 justify-content-around borde mb-5 text-center">
-          <p className="fw-bold fs-2">Financial</p>
+          <p className="fw-bold fs-2">Inicio de sesión</p>
         </div>
         <form onSubmit={handleSubmit(onSubmit)} className="w-100">
           <>
             <div>
               <select
-                value={selectedOption}
+                defaultValue={selectedOption}
                 onChange={handleChange}
                 className={`form-control mb-3 ${
                   errors.loginEmail ? "is-invalid" : ""
                 }`}
               >
                 {options.map((option) => (
-                  <option
-                    key={option.value}
-                    value={option.value}
-                    placeholder="Seleccione usuario"
+                  <option key={option.value} value={option.value}
                   >
                     {option.label}
                   </option>
@@ -88,9 +83,7 @@ export const SignIn = () => {
                   message: "La contraseña debe tener al menos 8 caracteres",
                 },
               })}
-              className={`form-control mb-3 ${
-                errors.loginPassword ? "is-invalid" : ""
-              }`}
+              className={`form-control mb-3 ${ errors.loginPassword ? "is-invalid" : ""}`}
             />
             {errors.loginPassword && (
               <span className="invalid-feedback">

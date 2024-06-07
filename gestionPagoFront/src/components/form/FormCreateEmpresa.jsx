@@ -60,7 +60,6 @@ const defaultValues = {
 
 export const FormCreateEmpresa = () => {
   const handleSubmit = async (data) => {
-    console.log(data, "dentro del submit empresa");
     const datos = await empresa.crearEmpresa(data.items[0]);
     reset("");
   };
@@ -68,7 +67,7 @@ export const FormCreateEmpresa = () => {
   return (
     <DynamicForm
       fieldsConfig={fieldsConfig}
-      formTitle="Crear Empresa"
+      formTitle=""
       buttonLabel="Crear empresa"
       defaultValues={defaultValues}
       onSubmit={handleSubmit}

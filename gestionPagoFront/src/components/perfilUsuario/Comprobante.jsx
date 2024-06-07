@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./css/comprobante.css";
 import { CustomButton } from "../common/CustomButton";
 import { FormModal } from "../common/FormModal";
-import { FormCreateIngreso } from "../form/FormCreateIngreso";
+import { FormCreateEgreso } from "../form/FormCreateEgreso";
 import { BsPencilFill, BsTrashFill } from "react-icons/bs";
 import * as backDelete from "../../services/ComprobantePago";
 export const Comprobante = ({ informacionCard, onClick }) => {
@@ -44,7 +44,7 @@ export const Comprobante = ({ informacionCard, onClick }) => {
           <BsTrashFill className="fs-5 text-secondary" onClick={onClick} />
           <BsPencilFill
             className="fs-5 text-secondary"
-            onClick={() => handleOpenModal(crearIngreso)}
+            onClick={() => handleOpenModal(crearEgreso)}
           />
           <FormModal
             isOpen={isEditModalOpen}
