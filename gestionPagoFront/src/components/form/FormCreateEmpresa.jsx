@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { DynamicForm } from "../common/DynamicForm";
-import * as empresa from "../../services/Empresa";
+import * as empresaService from "../../services/Empresa";
 
 const fieldsConfig = [
   {
@@ -58,18 +58,30 @@ const defaultValues = {
   ],
 };
 
-export const FormCreateEmpresa = () => {
+export const FormCreateEmpresa = ({ initialvalues, onSave}) => {
+  const [formValues, setFormValues] = useState(defaultValues)
+
+  useEffect(() => {
+    if (initialValues) {
+      setFormValues({ items: [initialValues] });
+    }
+  }, [initialValues]);
+
   const handleSubmit = async (data) => {
-    const datos = await empresa.crearEmpresa(data.items[0]);
-    reset("");
+    if (initialValues) {
+      await empresaService.editarEmpresa(initialValues.id, data.items[0]);
+    } else {
+      await empresaService.crearEmpresa(data.items[0]);
+    }
+    onSave(data.items[0]);
   };
 
   return (
     <DynamicForm
       fieldsConfig={fieldsConfig}
       formTitle=""
-      buttonLabel="Crear empresa"
-      defaultValues={defaultValues}
+      buttonLabel={initialValues ? "Editar empresa" : "Crear empresa"}
+      defaultValues={formValues}
       onSubmit={handleSubmit}
     />
   );

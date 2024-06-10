@@ -51,7 +51,7 @@ export const editarBanco = async (bancoId, banco) => {
 export const eliminarBanco = async (banco_id) => {
   try {
     const response = await axios.delete(
-      `${GetBackendURL}bancoeliminar-banco/${banco_id}`
+      `${GetBackendURL}/eliminar-banco/${banco_id}`
     );
 
     if (response.status === 200) {

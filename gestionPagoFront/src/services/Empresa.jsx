@@ -26,10 +26,10 @@ export const obtenerEmpresa = async () => {
 };
 
 // Editar
-export const editarEmpresa = async (empresa_nit, empresa) => {
+export const editarEmpresa = async (empresa_id, empresa) => {
   try {
     const response = await axios.put(
-      `${GetBackendURL}/editar-empresa/${empresa_nit}`,
+      `${GetBackendURL}editar-empresa/${empresa_id}`,
       empresa
     );
     return response;
@@ -44,7 +44,7 @@ export const editarEmpresa = async (empresa_nit, empresa) => {
 export const eliminarEmpresa = async (empresa_id) => {
   try {
     const response = await axios.delete(
-      `${GetBackendURL}/eliminar-empresa/${empresa_id}`
+      `${GetBackendURL}eliminar-empresa/${empresa_id}`
     );
 
     if (response.status === 200) {

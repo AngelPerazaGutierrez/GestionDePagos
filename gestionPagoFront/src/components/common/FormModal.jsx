@@ -5,6 +5,7 @@ import { FormCreateEgreso } from "../form/FormCreateEgreso";
 import { FormCreateBanco } from "../form/FormCreateBanco";
 import { FormCreateEmpresa } from "../form/FormCreateEmpresa";
 import { FormCreateUsuario } from "../form/FormCreateUsuario";
+
 export const FormModal = ({
   isOpen,
   onClose,

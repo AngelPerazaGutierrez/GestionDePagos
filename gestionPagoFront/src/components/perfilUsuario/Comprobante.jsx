@@ -39,7 +39,7 @@ export const Comprobante = ({ informacionCard, onClick }) => {
   return (
     <div className="containerComprobante   shadow ">
       <div className="  d-flex justify-content-arouter stilosIcon">
-        <h5>Transacción #{id}</h5>
+        <h5>Transacción N-{id}</h5>
         <div className="d-flex gap-4 my-4 containerButo">
           <BsTrashFill className="fs-5 text-secondary" onClick={onClick} />
           <BsPencilFill
