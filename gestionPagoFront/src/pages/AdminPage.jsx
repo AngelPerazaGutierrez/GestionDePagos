@@ -12,6 +12,7 @@ import { DashboardAdmini } from "../components/administrador/DashboardAdmini";
 import { useThemeContext } from "../userContext/ContextProvider";
 import { PerfilAdmin } from "../components/administrador/PerfilAdmin";
 import { PerfilBanco } from "../components/administrador/pagesPerfil/PerfilBanco";
+import { FormCreateEgreso } from "../components/form/FormCreateEgreso";
 
 export const AdminPage = () => {
   const { isVisible, selectedPage } = useThemeContext();
@@ -27,6 +28,8 @@ export const AdminPage = () => {
         return <CompoEmpleados />;
       case "Empresas":
         return <CompoEmpresa />;
+      case "Comprobantes de pago":
+        return <ComprobanteCard />
       default:
         return <PerfilAdmin />;
     }

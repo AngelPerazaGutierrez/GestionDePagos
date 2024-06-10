@@ -13,12 +13,19 @@ import { Loading } from "../common/Loading";
 
 export const ComprobanteCard = () => {
   const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(true)
+  const [informacionCard, setInformacionCard] = useState([])
 
-  const [informacionCard, setInformacionCard] = useState([]);
   useEffect(() => {
     const getData = async () => {
-      const data = await obtenerComprobantes();
-      setInformacionCard(data);
+      try {
+        const data = await obtenerComprobantes();
+        setInformacionCard(data);
+      } catch (err) {
+        setError(err);
+      } finally {
+        setLoading(false);
+      }
     };
 
     getData();
@@ -39,21 +46,17 @@ export const ComprobanteCard = () => {
     if (confirmacion.isConfirmed) {
       try {
         const eliminado = await eliminarComprobante(comprobanteId);
-        console.log(eliminado, comprobanteId, "eliminado");
         if (eliminado) {
           Swal.fire({
             title: "¡Eliminado!",
             text: "El comprobante ha sido eliminado correctamente.",
             icon: "success",
           });
-          console.log("Comprobante eliminado correctamente");
+          setInformacionCard((prevInfo) =>
+            prevInfo.filter((item) => item.id !== comprobanteId)
+          );
         } else {
-          Swal.fire({
-            title: "Error",
-            text: "Hubo un error al intentar eliminar el comprobante.",
-            icon: "error",
-          });
-          console.error("Error al eliminar el comprobante");
+          throw new Error("Error al eliminar el comprobante");
         }
       } catch (error) {
         Swal.fire({
@@ -66,25 +69,28 @@ export const ComprobanteCard = () => {
     }
   };
 
+  if (loading) {
+    return <Loading />;
+  }
+
+  if (error) {
+    return <div>Error: {error.message}</div>;
+  }
+
   return (
-    <div className="containerCard py-4  rounded container  gap-1 w-full hidden lg:flex  justify-center items-center mb-4">
-      {error ? (
-        <Loading />
-      ) : (
-        <Container>
-          <Row>
-            {informacionCard.map((transaccion) => (
-              <Col md="12">
-                <Comprobante
-                  key={transaccion.id}
-                  informacionCard={transaccion}
-                  onClick={handleDelete}
-                />
-              </Col>
-            ))}
-          </Row>
-        </Container>
-      )}
+    <div className="containerCard py-4 rounded container gap-1 w-full hidden lg:flex justify-center items-center mb-4">
+      <Container>
+        <Row>
+          {informacionCard.map((transaccion) => (
+            <Col md="12" key={transaccion.id}>
+              <Comprobante
+                informacionCard={transaccion}
+                onClick={() => handleDelete(transaccion.id)}
+              />
+            </Col>
+          ))}
+        </Row>
+      </Container>
     </div>
   );
 };
