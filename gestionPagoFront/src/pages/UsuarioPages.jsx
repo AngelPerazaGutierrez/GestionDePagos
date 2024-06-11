@@ -5,31 +5,44 @@ import { useThemeContext } from "../userContext/ContextProvider";
 import { FormCreateEgreso } from "../components/form/FormCreateEgreso";
 import { ComprobanteCard } from "../components/perfilUsuario/ComprobanteCard";
 import { DashboardUser } from "../components/perfilUsuario/DashboardUser";
+import { PerfilUsuario } from "../components/perfilUsuario/PerfilUsuario"
+import { useState } from "react";
 
 export const UsuarioPages = () => {
-  const { selectedPage, showPagesProfile } = useThemeContext();
+  const { isVisible, selectedPage } = useThemeContext();
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
 
+  const renderSelectedPage = () => {
+    switch (selectedPage) {
+      case "Mi perfil":
+        return <PerfilUsuario />;      
+      case "Crear comprobante de pago":
+        return <FormCreateEgreso />
+      case "Visualizar comprobantes de pago":
+        return <ComprobanteCard />;
+      default:
+        return <PerfilUsuario />;
+    }
+  };
   return (
-    <div className="container-flued mt-9 containerPage pt-5">
-      <Row>
-        <Col sm={4} className="">
+    <div
+      className="justify-content-center "
+      style={{ height: "100vh", marginTop: "100px" }}
+    >
+      {/* <Container> */}
+      <Row className="d-flex justify-content-center align-items-center">
+        <Col md={12} className="d-flex  ">
           <DashboardUser />
+          {isVisible && !isSmallScreen && <DashboardUser />} 
         </Col>
-
-        <Col className="pt-5">
-          {selectedPage}
-
-          {selectedPage === "Perfil" && <PerfilUser />}
-          <div style={{ width: "50%" }}>
-            {selectedPage === "Crear comprobante de pago" && (
-              <FormCreateEgreso />
-            )}
-          </div>
-          {selectedPage === "Visualizar comprobantes de pago" && (
-            <ComprobanteCard />
-          )}
+        <Col md={12}>
+          <div className="container">{renderSelectedPage()}</div>
         </Col>
+      </Row>
+      <Row className="justify-content-center align-items-center">
+        <Col md={6}></Col>
       </Row>
     </div>
   );
 };
+

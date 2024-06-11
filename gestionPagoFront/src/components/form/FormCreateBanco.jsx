@@ -30,6 +30,7 @@ const fieldsConfigBanco = [
   },
 ];
 
+
 export const FormCreateBanco = ({ bancoId, onSave }) => {
   // seccion de usercontext
   const { showForm, setShowForm } = useThemeContext();
@@ -70,7 +71,7 @@ export const FormCreateBanco = ({ bancoId, onSave }) => {
   return (
     <DynamicForm
       fieldsConfig={fieldsConfigBanco}
-      formTitle={bancoId ? "Editar Banco" : "Crear Bancos"}
+      // formTitle={bancoId ? "Editar Banco" : "Crear Bancos"}
       buttonLabel={bancoId ? "Editar" : "Crear Bancos"}
       defaultValues={formValues}
       onSubmit={handleSubmit}

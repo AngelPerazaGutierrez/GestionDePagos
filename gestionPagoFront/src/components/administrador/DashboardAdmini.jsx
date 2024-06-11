@@ -85,15 +85,6 @@ export const DashboardAdmini = () => {
         proceso={profileDas?.proceso}
         className="perfil-header"
       />
-      {/* <strong>Nombre:</strong> {profileData?.nombre}
-      <strong>apellido:</strong>
-      {profileData?.apellido}
-      <strong>Carrera profesional:</strong>
-      {profileData?.profession}
-      <strong>Email</strong>
-      {profileData?.email}
-      <strong>proceso</strong>
-      {profileData?.proceso} */}
       <Navegacion
         pages={pages}
         onSelectPage={handledPagesSelect}

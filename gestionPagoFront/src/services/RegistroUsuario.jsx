@@ -1,5 +1,6 @@
 import axios from "axios";
 import { GetBackendURL } from "../config/GetBackendURL";
+
 export const registroUsuario = async (datoFormUser) => {
   console.log(datoFormUser);
   try {

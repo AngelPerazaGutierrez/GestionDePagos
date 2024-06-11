@@ -26,9 +26,9 @@ export const obtenerComprobantes = async () => {
 };
 
 // Editar
-export const editarComprobante = async (pc_id, comprobante) => {
+export const editarComprobante = async (cp_id, comprobante) => {
   try {
-    const response = await axios.put(`${GetBackendURL}cp/editar-cp/${pc_id}`);
+    const response = await axios.put(`${GetBackendURL}cp/editar-cp/${cp_id}`);
     console.log(response, "ddddd");
     return response;
   } catch (error) {

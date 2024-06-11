@@ -1,5 +1,7 @@
 import { DynamicForm } from "../common/DynamicForm";
-import * as user from "../../services/RegistroUsuario";
+import { useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
+import * as usuario from "../../services/RegistroUsuario"
 const fieldsConfigUsuario = [
   {
     name: "cedula",
@@ -45,38 +47,63 @@ const fieldsConfigUsuario = [
       { value: "Financiera", label: "Financiera" },
       { value: "Gerencia", label: "Gerencia" },
       { value: "Nomina", label: "Nomina" },
-      { value: "Tesoreria", label: "Tesoreria" },
+      { value: "Tesoreria", label: "Tesoreria"},
+      { value: "Administrador", label: "Administrador"},
     ],
     validation: { required: "Proceso es obligatorio" },
   },
 ];
-export const FormCreateUsuario = () => {
-  const defaultValues = {
-    items: [
-      {
-        cedula: "",
-        nombre: "",
-        apellido: "",
-        email: "",
-        password: "",
-        fecha_creacion: "",
-        proceso: "",
-      },
-    ],
-  };
+
+const defaultValuesUsuario = {
+  items: [
+    {
+      cedula: "",
+      nombre: "",
+      apellido: "",
+      email: "",
+      password: "",
+      fecha_creacion: "",
+      proceso: "",
+    },
+  ],
+};
+
+
+export const FormCreateUsuario = ({ 
+  initialValues = defaultValuesUsuario, 
+  onSave,
+}) => {  
   const handleSubmit = async (data) => {
-    console.log(data, "dentro del usuario");
-    const datos = await user.registroUsuario(data.items[0]);
+    try {
+      let response;
+
+      if (initialValues.items[0].id) {
+        const response = await usuario.editarUsuario(
+          initialValues.items[0].id,
+          data.items[0]
+        );
+      } else {
+        const datos = await egreso.registroUsuario(data.items[0]);
+      }
+
+      onSave(response.data);
+    } catch (error) {}
+    console.log(data, "dentro del submit usuario");
     reset("");
   };
   return (
-    <DynamicForm
-      fieldsConfig={fieldsConfigUsuario}
-      formTitle="Crear Usuario"
-      button="Crear Usuario"
-      buttonLabel="Formulario de usuario"
-      defaultValues={defaultValues}
-      onSubmit={handleSubmit}
-    />
+    <div className="w-4">
+      <DynamicForm
+        fieldsConfig={fieldsConfigUsuario}
+        formTitle=""
+        buttonLabel={
+          initialValues.items[0].id ? "Editar usuario" : "Crear usuario"
+        }
+        defaultValues={defaultValuesUsuario}
+        onSubmit={handleSubmit}
+      />
+    </div>
   );
 };
+
+

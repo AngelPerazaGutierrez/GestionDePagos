@@ -9,7 +9,7 @@ import { CompoBanco } from "../CompoBanco";
 import { useThemeContext } from "../../../userContext/ContextProvider";
 
 export const PerfilBanco = () => {
-  // const [showBancos, setShowBancos] = useState(null);
+  
   const { showForm, setShowForm } = useThemeContext();
   const [showCreateBanco, setShowCreateBanco] = useState(true);
   const [showBancos, setShowBancos] = useState(false);

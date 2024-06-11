@@ -45,7 +45,7 @@ export const DashboardUser = () => {
     {
       id: 1,
       name: "Mi perfil",
-      icon: <BsPersonFill className="fs-3 p-" style={{ flex: "" }} />,
+      icon: <BsPersonFill className="fs-6 m-2" />,
     },
     {
       id: 2,
@@ -67,15 +67,7 @@ export const DashboardUser = () => {
         proceso={profileDas?.proceso}
         className="perfil-header"
       />
-      {/* <strong>Nombre:</strong> {profileData?.nombre}
-      <strong>apellido:</strong>
-      {profileData?.apellido}
-      <strong>Carrera profesional:</strong>
-      {profileData?.profession}
-      <strong>Email</strong>
-      {profileData?.email}
-      <strong>proceso</strong>
-      {profileData?.proceso} */}
+   
       <Navegacion
         pages={pages}
         onSelectPage={handledPagesSelect}
