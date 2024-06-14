@@ -1,7 +1,7 @@
 import axios from "axios";
 import { GetBackendURL } from "../config/GetBackendURL";
 
-export const crearoUsuario = async (datosFormUser) => {
+export const crearUsuario = async (datosFormUser) => {
   console.log(datosFormUser);
   try {
     const response = await axios.post(

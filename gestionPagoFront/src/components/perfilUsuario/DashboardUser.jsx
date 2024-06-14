@@ -7,7 +7,7 @@ import { Navegacion } from "../common/perfil/Navegacion";
 import { PerfilHeader } from "../common/perfil/PerfilHeader";
 import { useThemeContext } from "../../userContext/ContextProvider";
 import foto from "../../assets/img/perfil.jpeg";
-import { consultarUsuario } from "../../services/RegistroUsuario";
+import { obtenerUsuario } from "../../services/RegistroUsuario";
 
 
 
@@ -22,7 +22,7 @@ export const DashboardUser = () => {
   useEffect(() => {
     const fetchProfileData = async () => {
       try {
-        const response = await consultarUsuario();
+        const response = await obtenerUsuario();
         setProfileDas(response.data);
       } catch (err) {
         setError(err);

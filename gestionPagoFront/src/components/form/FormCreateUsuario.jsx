@@ -83,7 +83,7 @@ export const FormCreateUsuario = ({
           data.items[0]
         );
       } else {
-        const datos = await usuario.crearoUsuario(data.items[0]);
+        const datos = await usuario.crearUsuario(data.items[0]);
       }
 
       onSave(response.data);

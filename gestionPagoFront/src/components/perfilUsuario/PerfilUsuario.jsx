@@ -4,7 +4,7 @@ import Col from "react-bootstrap/Col";
 import { PerfilHeader } from "../common/perfil/PerfilHeader";
 // import "./css/perfiAdmin.css";
 import foto from "../../assets/img/perfil.jpeg";
-import { consultarUsuario } from "../../services/RegistroUsuario";
+import { obtenerUsuario } from "../../services/RegistroUsuario";
 import { Loading } from "../common/Loading";
 import { useEffect, useState } from "react";
 
@@ -16,7 +16,7 @@ export const PerfilUsuario = () => {
   useEffect(() => {
     const fetchProfileData = async () => {
       try {
-        const response = await consultarUsuario();
+        const response = await obtenerUsuario();
         setProfileData(response[0]); // hacer una mejora para que salga por id, compare y traiga los datos por ahora esta setiado al primer registro
         console.log(response)
       } catch (err) {

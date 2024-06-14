@@ -15,7 +15,7 @@ import { Navegacion } from "../common/perfil/Navegacion";
 import { PerfilHeader } from "../common/perfil/PerfilHeader";
 import { useState, useEffect } from "react";
 import { Loading } from "../common/Loading";
-import { consultarUsuario } from "../../services/RegistroUsuario";
+import { obtenerUsuario } from "../../services/RegistroUsuario";
 
 
 export const DashboardAdmini = () => {
@@ -29,7 +29,7 @@ export const DashboardAdmini = () => {
   useEffect(() => {
     const fetchProfileData = async () => {
       try {
-        const response = await consultarUsuario();
+        const response = await obtenerUsuario();
         setProfileDas(response.data);
       } catch (err) {
         setError(err);

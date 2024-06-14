@@ -3,7 +3,7 @@ import "./css/compoBancos.css";
 import Swal from "sweetalert2";
 import { Container, Row, Col } from "react-bootstrap/";
 import { CustomButton } from "../common/CustomButton";
-import { consultarUsuario } from "../../services/RegistroUsuario";
+import { obtenerUsuario } from "../../services/RegistroUsuario";
 import { Loading } from "../common/Loading";
 import { Bancos } from "./common/Bancos";
 import { Empleados } from "./common/Empleados";
