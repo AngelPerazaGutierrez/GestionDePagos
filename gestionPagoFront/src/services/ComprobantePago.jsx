@@ -28,8 +28,7 @@ export const obtenerComprobantes = async () => {
 // Editar
 export const editarComprobante = async (cp_id, comprobante) => {
   try {
-    const response = await axios.put(`${GetBackendURL}cp/editar-cp/${cp_id}`);
-    console.log(response, "ddddd");
+    const response = await axios.put(`${GetBackendURL}cp/editar-cp/${cp_id}`);    
     return response;
   } catch (error) {
     console.error("Error al editar el comprobante:", error);

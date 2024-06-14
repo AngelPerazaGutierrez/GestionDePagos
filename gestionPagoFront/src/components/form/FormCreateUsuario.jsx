@@ -1,7 +1,7 @@
 import { DynamicForm } from "../common/DynamicForm";
-import { useEffect, useState } from "react";
-import { useForm } from "react-hook-form";
+import React from "react";
 import * as usuario from "../../services/RegistroUsuario"
+
 const fieldsConfigUsuario = [
   {
     name: "cedula",
@@ -83,7 +83,7 @@ export const FormCreateUsuario = ({
           data.items[0]
         );
       } else {
-        const datos = await egreso.registroUsuario(data.items[0]);
+        const datos = await usuario.crearoUsuario(data.items[0]);
       }
 
       onSave(response.data);

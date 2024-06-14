@@ -1,12 +1,12 @@
 import axios from "axios";
 import { GetBackendURL } from "../config/GetBackendURL";
 
-export const registroUsuario = async (datoFormUser) => {
-  console.log(datoFormUser);
+export const crearoUsuario = async (datosFormUser) => {
+  console.log(datosFormUser);
   try {
     const response = await axios.post(
       `${GetBackendURL}usuario/registrar-usuario`,
-      datoFormUser
+      datosFormUser
     );
     console.log(`Enviando el formulario`, response);
   } catch (error) {
@@ -14,7 +14,7 @@ export const registroUsuario = async (datoFormUser) => {
   }
 };
 
-export const consultarUsuario = async () => {
+export const obtenerUsuario = async () => {
   console.log(GetBackendURL, "comprobante");
   try {
     const response = await axios.get(`${GetBackendURL}usuario/listar-usuario`);
@@ -28,11 +28,8 @@ export const consultarUsuario = async () => {
 // Editar
 export const editarUsuario = async (usuario_cedula, usuario) => {
   try {
-    const response = await axios.put(
-      `${GetBackendURL}usuario/editar-usuario/${usuario_cedula}`,
-      usuario
-    );
-    return response;
+    const response = await axios.put(`${GetBackendURL}usuario/editar-usuario/${usuario_cedula}`);
+      return response  
   } catch (error) {
     console.error("Error al editar el usuario:", error);
     throw error;

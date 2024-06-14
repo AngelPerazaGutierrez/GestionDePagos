@@ -1,6 +1,5 @@
 import React from "react";
 import { DynamicForm } from "../common/DynamicForm";
-
 import * as egreso from "../../services/ComprobantePago";
 
 const fieldsConfigEgreso = [
