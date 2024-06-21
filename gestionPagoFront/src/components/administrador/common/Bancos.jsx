@@ -12,11 +12,13 @@ export const Bancos = ({ informacionBanco, onClick, onEdit }) => {
   const defaultValues = {
     items: [{ nit: "", tipo_cuenta: "Ahorro", nombre_banco: "" }],
   };
-  // useContext
+
   const { formType, setFormType, isModalOpen, setIsModalOpen } =
     useThemeContext();
+    
   const [selectedBancoId, setSelectedBancoId] = useState(null);
   const [isDeleting, setIsDeleting] = useState(false);
+  
   const handleOpenModal = (type, bancoId) => {
     setFormType(type);
     setIsModalOpen(true);

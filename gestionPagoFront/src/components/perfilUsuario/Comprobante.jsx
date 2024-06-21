@@ -17,14 +17,13 @@ export const Comprobante = ({ informacionCard, onClick }) => {
     banco,
     tipo_cuenta,
     numero_cuenta,
-
     valor,
   } = informacionCard;
 
   const [isEditModalOpen, setEditModalOpen] = useState(false);
   const [formData, setFormData] = useState({ items: [{}] }); // Estado inicial de los datos del formulario
 
-  const handleOpenModal = () => {
+  const handleOpenModal = () => {       
     setEditModalOpen(true);
   };
 
@@ -44,14 +43,15 @@ export const Comprobante = ({ informacionCard, onClick }) => {
           <BsTrashFill className="fs-5 text-secondary" onClick={onClick} />
           <BsPencilFill
             className="fs-5 text-secondary"
-            onClick={() => handleOpenModal(crearEgreso)}
+            onClick={ () => handleOpenModal("crearEgreso")}
           />
           <FormModal
-            isOpen={isEditModalOpen}
-            onClose={handleCloseModal}
-            initialValues={formData}
-            onSave={handleSave}
-          />
+           isOpen={isEditModalOpen}
+           onClose={handleCloseModal}
+           initialValues={formData}
+           onSave={handleSave}
+           formType="crearEgreso"
+        />
         </div>
       </div>
       <div className="culumnadata items d-flex">

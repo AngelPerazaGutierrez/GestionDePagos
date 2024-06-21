@@ -18,7 +18,10 @@ export const FormModal = ({
     switch (formType) {
       case "crearEgreso":
         return (
-          <FormCreateEgreso initialValues={initialValues} onSave={onSave} />
+          <FormCreateEgreso 
+          initialValues={initialValues} 
+          onSave={onSave} 
+          bancoId={bancoId}/>
         );      
       case "crearBancos":
         return (

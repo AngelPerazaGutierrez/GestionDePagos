@@ -52,8 +52,8 @@ export const ComprobanteCard = () => {
             text: "El comprobante ha sido eliminado correctamente.",
             icon: "success",
           });
-          setInformacionCard((prevInfo) =>
-            prevInfo.filter((item) => item.id !== comprobanteId)
+          setInformacionCard((data) =>
+            data.filter((item) => item.id !== comprobanteId)
           );
         } else {
           throw new Error("Error al eliminar el comprobante");
@@ -68,6 +68,48 @@ export const ComprobanteCard = () => {
       }
     }
   };
+
+
+ const handleEdit = async (comprobanteId) => {
+    const confirmacion = await Swal.fire({
+      title: "¿Estás seguro?",
+      text: "¿Quieres eliminar este comprobante?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonText: "Sí, eliminar",
+      cancelButtonText: "Cancelar",
+      confirmButtonColor: "#dc3545",
+      cancelButtonColor: "#6c757d",
+    });
+
+    if (confirmacion.isConfirmed) {
+      try {
+        const editado = await editarComprobante(comprobanteId);
+        if (editado) {
+          Swal.fire({
+            title: "Editado!",
+            text: "El comprobante ha sido Editado correctamente.",
+            icon: "success",
+          });
+          setInformacionCard((data) =>
+            data.filter((item) => item.id !== comprobanteId)
+          );
+        } else {
+          throw new Error("Error al eliminar el comprobante");
+        }
+      } catch (error) {
+        Swal.fire({
+          title: "Error",
+          text: "Hubo un error al intentar eliminar el comprobante.",
+          icon: "error",
+        });
+        console.error("Error al intentar eliminar el comprobante:", error);
+      }
+    }
+ };
+
+
+
 
   if (loading) {
     return <Loading />;
@@ -86,6 +128,7 @@ export const ComprobanteCard = () => {
               <Comprobante
                 informacionCard={transaccion}
                 onClick={() => handleDelete(transaccion.id)}
+                               
               />
             </Col>
           ))}

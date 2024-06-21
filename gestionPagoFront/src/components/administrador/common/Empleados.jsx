@@ -7,22 +7,35 @@ import {
   eliminarUsuario,
 } from "../../../services/RegistroUsuario";
 import { BsPencilFill, BsTrashFill } from "react-icons/bs";
-// import * as backDelete from "../../../services/ComprobantePago";
-export const Empleados = ({ informacionEmpleo, onClick }) => {
+
+export const Empleados = ({ informacionEmpleo, onClick, onEdit }) => {
   const {
-    cedula,
+    // cedula,
     nombre,
     apellido,
     email,
     password,
     fecha_creacion,
     proceso,
-    ciudad,
   } = informacionEmpleo;
+
+  const defaultValues = {
+    items: [{
+      // cedula: 0,
+      nombre: "",
+      apellido: "",
+      email: "",
+      password: "",
+      fecha_creacion: "",
+      proceso: "",
+    }]
+  }
 
   const { formType, setFormType, isModalOpen, setIsModalOpen } =
     useThemeContext();
+
   const [SelecteUserId, setSelectedUserId] = useState(null);
+  const [isDeleting, setIsDeleting] = useState(false);
 
   const handleOpenModal = (type, userId) => {
     setFormType(type);
@@ -74,23 +87,25 @@ export const Empleados = ({ informacionEmpleo, onClick }) => {
 
           <FormModal
             isOpen={isModalOpen}
-            formType={formType}
-            onSave={handleSave}
             onClose={handleCloseModal}
+            formType={formType}
+            defaultValues={defaultValues}
+            onSave={handleSave}
             onDelete={handleDelete}
             // bancoId={selectedBancoId}
           />
         </div>
       </div>
+      
       <div className="culumnadata items d-flex">
+        {/* <div>
+          <strong> cedula:</strong> {cedula}
+        </div> */}
         <div>
           <strong>Nombre:</strong> {nombre}
         </div>
         <div>
           ,<strong>Apellido:</strong> {apellido}
-        </div>
-        <div>
-          <strong> cedula:</strong> {cedula}
         </div>
         <div>
           <strong> email:</strong> {email}
