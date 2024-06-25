@@ -10,7 +10,6 @@ import foto from "../../assets/img/perfil.jpeg";
 import { obtenerUsuario } from "../../services/RegistroUsuario";
 
 
-
 export const DashboardUser = () => {
   const { selectedPage, setSelectedPage, setshowPagesProfile } =
     useThemeContext();
@@ -59,7 +58,7 @@ export const DashboardUser = () => {
     },
   ];
   return (
-    <div className="profile-container mt-5  shadow">
+    <div className="profile-container">
       <PerfilHeader
         imageSrc={foto}
         name={profileDas?.nombre}

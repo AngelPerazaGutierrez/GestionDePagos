@@ -77,7 +77,7 @@ export const DashboardAdmini = () => {
   ];
 
   return (
-    <div className="profile-container mt-5  shadow">
+    <div className="profile-container">
       <PerfilHeader
         imageSrc={foto}
         name={profileDas?.nombre}

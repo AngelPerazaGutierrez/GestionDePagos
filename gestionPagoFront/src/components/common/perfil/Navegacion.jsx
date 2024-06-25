@@ -4,7 +4,7 @@ export const Navegacion = ({ pages, onSelectPage }) => {
   return (
     <nav className="container">
       {pages.map((page) => (
-        <div className="mb-4  container " key={page.id}>
+        <div className="mb-4 container " key={page.id}>
           <CustomButton
             text={page.name}
             icon={page.icon}

@@ -27,7 +27,7 @@ export const UsuarioPages = () => {
   return (
     <div
       className="justify-content-center "
-      style={{ height: "100vh", marginTop: "100px" }}
+      style={{ height: "100vh" }}
     >
       {/* <Container> */}
       <Row className="d-flex justify-content-center align-items-center">
