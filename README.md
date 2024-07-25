@@ -19,12 +19,13 @@ En este proyecto manejaremos dos perfiles que pueden hacer las siguientes tareas
   - Eliminar comprobantes (antes de ser aprobados, una vez aprobados no se podrá Eliminar).
 
   
-
 ### Glosario ##
 
 - **Banco**: Entidad que realiza el desembolso de dinero.
-- **Comprobante de Pago**: Formulario donde se llenan los datos para pago.
-- ** 
+- **Comprobante de Pago**: Documento que confirma la realización de un pago por bienes, servicios o deudas, detallando la fecha, monto, concepto, método de pago entre otros.
+- **Empresa**: Entidad con la cual se tiene vinculo comercial y a quien se le realizará el pago.
+- **Egreso**: Salida de dinero de una entidad.
+
 
 
 
