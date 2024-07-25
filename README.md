@@ -41,25 +41,72 @@ Este es un proyecto módularizado mediante sus componentes reutilizables para la
 ------------------------------------------------------------------------------------------------
 ## Despliegue del Proyecto:
 
-### Para desplegar el proyecto de una manera eficiente es necesario tener los siguientes programas instalados:
-- ##VSCode## Es el editor de código sugerido para correr nuestro front.
+**Para desplegar el proyecto de una manera eficiente es necesario tener los siguientes programas instalados:**
+- **VSCode** Es el editor de código sugerido para correr nuestro front.
 
-- ##Pycharm## Es el editor sugerido para backend, para este proyecto usaremos el repositorio *https://github.com/AngelPerazaGutierrez/GestionDePagosBackend* 
+- **Pycharm**Es el editor sugerido para backend, para este proyecto usaremos el repositorio *https://github.com/AngelPerazaGutierrez/GestionDePagosBackend*
 
-- ##Xampp## control panel (Esto nos ayudará a Habilitar los puertos para el manejo de la base de datos en este caso el 3306)
-- 
-- ##MySQL## workbrench (desde Aqui podemos ver y administrar mejor nuestra DB, aunque lo podemos hacer desde Xampp, este es mucho mas comodo para realizar analisis de los CRUD)
+- **Instalar python**
+
+- **Instalar Bash**
+
+- **Xampp** control panel (Esto nos ayudará a Habilitar los puertos para el manejo de la base de datos en este caso el 3306)
+
+- **MySQL Workbrench** (desde Aqui podemos ver y administrar mejor nuestra DB, aunque lo podemos hacer desde Xampp, este es mucho mas comodo para realizar analisis de los CRUD)
 
 --------------------------------------------------------------------------
 
-###Instrucciones para correr el proyecto de manera correcta###
-  
+### Instrucciones para correr el proyecto de manera correcta ###
+
+1- Clone el ropositorio Front https://github.com/AngelPerazaGutierrez/GestionDePagos.git
+
+2- Clone el repositorio back
+https://github.com/AngelPerazaGutierrez/GestionDePagosBackend.git
+
+3- Abre **XAMPP** habilita el puerro 3306, dale click a Mysql en el boton start
+
+4- Abre **Workbrench** 
+   - En el boton de + crea una conexion 
+   - Dale un nombre
+   - Fijate que el puerto (port) sea 3306
+   - Dale ok
+
+5- Abre **Pycharm** 
+- verifica que pip esté instalado: **pip --version**
+- instala tu entorno virtual de preferencia: **pip install virtualenv**
+- Crea un entorno virtual: **virtualenv mi_entorno**
+- Activa el entorno virtual en windows: **mi_entorno\Scripts\activate**
+- Activa el entorno virtual en linux o bash: **source mi_entorno/bin/activate**
+- instala los las dependencias que estan en requirements.txt: **pip install -r requirements.txt**
+- ejecuta el archivo **run_fastapi**
+
+
+6- Si te sale esto 👇
+
+<span style="color: red;">INFO:Started server process [8616] 
+
+<span style="color: red;">INFO:Waiting for application startup. [8616] 
+
+<span style="color: red;">INFO:Application startup complete. [8616] 
+
+7- Ya estas listo para correr el front!.
+
+8- Abre tu **VScode**
+* ve a la direccion donde guardaste el repositorio Front, abrelo.
+
+9- Una vez dentro escribe **ls** si tienes instalado linux o bash, o **dir** para windows.
+
+10- dirigete a la carpeta **gestionPagoFront** una vez dentro **ejecuta npm i** para instalar todas las dependencias.
+
+11- ejecuta *npm run dev**
+
+12- ya todo esta listo.
 
 
 
 
 
-
+----------------------------------------------------------------------------
 
 
 
@@ -79,7 +126,6 @@ Pendientes por realizar:
 - /user
 - -> Mi perfil: Importar el componente de mi perfil para que quede como el de /admin
 - -> Visualizar comprobantes de pago botones eliminar y editar.
-
 
 
 
