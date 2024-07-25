@@ -1,22 +1,67 @@
-# GestionDePagos
+# Gestion De Pagos
 Plataforma Web que gestiona el flujo de pagos de una compañia en la parte contable y tesorera.
 
+El proyecto esta pensado para que una compañia lleve el control de sus egresos.
+En este proyecto manejaremos dos perfiles que pueden hacer las siguientes tareas:
 
-**Front Desarrollado:**
+- Administrador: 
+  - Crear y administrar Usuarios, Bancos, Empresas, Comprobantes de pago.
+  - Modificar registros.
+  - Solucionar problemas de llamados de informacion.
+  - Mas permisos.
+  - Edicion de imformacion en las diferentes tablas.
+  - Desactivar comprobantes de pago.
+  - Ver comprobantes
 
-**React + vite.**
+- Usuario: 
+  - Crear Comprobantes de Pago.
+  - Editar Comprobantes de pago (antes de ser aprobados, una vez aprobados no se podrá modificar).
+  - Eliminar comprobantes (antes de ser aprobados, una vez aprobados no se podrá Eliminar).
 
-- Proyecto modularizado mediante los componentes reutilizables
-- Conexión con el Backend mediante axios en la carpeta Services.
+  
 
-- Conexion al puerto por defecto de react 5173.
+### Glosario ##
+
+- **Banco**: Entidad que realiza el desembolso de dinero.
+- **Comprobante de Pago**: Formulario donde se llenan los datos para pago.
+- ** 
+
+
+
+## Detalles de desarrollo ##
+
+Plataforma creada con 
+**React + vite.** en el **Fronted** & en el **Backend** con **Python**, Base de datos modelada con SQLAlchemy.
+
+Este es un proyecto módularizado mediante sus componentes reutilizables para la mejor comprensión del código, conexión a backend mediante la libreria Axios, puertos habilitados para la Base de datos (3306) y front (5173).
 
 -----------------------------------------------------------------------------------------------
-El proyecto esta pensado para que una compañia lleve el control de sus egresos.
-Hay dos perfiles.
-- Administrador: Quien da acceso a los usurio y tiene acceso de modificacion y creacion de(Usuarios, Bancos, Empresas, comprobantes de Pago)
-- Usuario = puede crear, modificar y eliminar comprobantes de pago.
+
 ------------------------------------------------------------------------------------------------
+## Despliegue del Proyecto:
+
+### Para desplegar el proyecto de una manera eficiente es necesario tener los siguientes programas instalados:
+- ##VSCode## Es el editor de código sugerido para correr nuestro front.
+
+- ##Pycharm## Es el editor sugerido para backend, para este proyecto usaremos el repositorio *https://github.com/AngelPerazaGutierrez/GestionDePagosBackend* 
+
+- ##Xampp## control panel (Esto nos ayudará a Habilitar los puertos para el manejo de la base de datos en este caso el 3306)
+- 
+- ##MySQL## workbrench (desde Aqui podemos ver y administrar mejor nuestra DB, aunque lo podemos hacer desde Xampp, este es mucho mas comodo para realizar analisis de los CRUD)
+
+--------------------------------------------------------------------------
+
+###Instrucciones para correr el proyecto de manera correcta###
+  
+
+
+
+
+
+
+
+
+
 
 Pendientes por realizar:
 
