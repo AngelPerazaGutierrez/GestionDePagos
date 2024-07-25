@@ -43,6 +43,7 @@ Este es un proyecto módularizado mediante sus componentes reutilizables para la
 
 **Para desplegar el proyecto de una manera eficiente es necesario tener los siguientes programas instalados:**
 - **VSCode** Es el editor de código sugerido para correr nuestro front.
+*https://github.com/AngelPerazaGutierrez/GestionDePagos.git*
 
 - **Pycharm**Es el editor sugerido para backend, para este proyecto usaremos el repositorio *https://github.com/AngelPerazaGutierrez/GestionDePagosBackend*
 
